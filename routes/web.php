@@ -11,9 +11,8 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', 'Frontend\PageController@index');
+Route::get('set/locale/{locale}','Backend\PageController@set_locale')->name('set_locale');
 // ------------ Admin Routes -------------------------------
 Route::group(['middleware' => 'auth','prefix' => 'admin'],function (){
     Route::get('/dashboard','Backend\PageController@index')->name('dashboard');

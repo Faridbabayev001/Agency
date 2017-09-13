@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Backend;
 
+use App\Category;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
@@ -35,7 +36,13 @@ class CategoryController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->validate($request,[
+            'name_en' => 'required',
+            'name_az' => 'required',
+        ]);
+        Category::create($request->all());
+        $request->session()->flash('add_category','Category added');
+        return back();
     }
 
     /**

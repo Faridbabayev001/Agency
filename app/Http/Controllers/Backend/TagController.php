@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Backend;
 
+use App\Tag;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
@@ -35,7 +36,13 @@ class TagController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->validate($request,[
+            'name_en' => 'required',
+            'name_az' => 'required',
+        ]);
+        Tag::create($request->all());
+        $request->session()->flash('add_tag','Tag added');
+        return back();
     }
 
     /**

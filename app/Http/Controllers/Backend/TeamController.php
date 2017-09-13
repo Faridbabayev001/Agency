@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers\Backend;
 
+use App\Http\Requests\TeamRequest;
+use App\Team;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
@@ -33,9 +35,19 @@ class TeamController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(TeamRequest $request)
     {
-        //
+        $slug = str_slug($request->name_en);
+        $image_name =  rand(1,99999).'-'.$slug.'.'.$request->file('avatar')->getClientOriginalExtension();
+        $request->file('avatar')->move(public_path('post'),$image_name);
+        $data['avatar'] = $image_name;
+        $data['name_en'] = $request->name_en;
+        $data['name_az'] = $request->name_az;
+        $data['position_en'] = $request->position_en;
+        $data['position_az'] = $request->position_az;
+        Team::create($data);
+        $request->session()->flash('add_team', 'Team added');
+        return back();
     }
 
     /**

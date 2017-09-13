@@ -2,6 +2,8 @@
 
 namespace App\Providers;
 
+//use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Request;
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Support\ServiceProvider;
 
@@ -14,6 +16,8 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
+//        app()->setLocale(Request::segment(1));
+////        dd(app()->getLocale());
         Schema::defaultStringLength(191);
     }
 

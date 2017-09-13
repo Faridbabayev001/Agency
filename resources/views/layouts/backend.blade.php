@@ -7,6 +7,8 @@
     <meta name="description" content="">
     <meta name="keywords" content="">
     <title>MaterialWrap - jQuery full version</title>
+    <meta name="_token" content="{!!csrf_token()!!}">
+    <link rel="stylesheet" href="{{url('css/notifier.css')}}">
     <link rel="stylesheet" href="{{url('assets/css/vendor.bundle.css')}}">
     <link rel="stylesheet" href="{{url('assets/css/app.bundle.css')}}">
     <link rel="stylesheet" href="{{url('assets/css/theme-a.css')}}">
@@ -26,12 +28,12 @@
                 <ul class="nav navbar-nav left-menu hidden-xs">
                     <li>
                         <a href="{{route('dashboard')}}" class="nav-link">
-                            <span>Home</span>
+                            <span>@lang('header.home')</span>
                         </a>
                     </li>
                     <li>
                         <a href="{{route('add_data')}}" class="nav-link">
-                            <span>Add</span>
+                            <span>Add Data</span>
                         </a>
                     </li>
                     <li class="dropdown dropdown-lg app_menu_launcher hidden-xs">
@@ -81,14 +83,6 @@
                                 <a href="javascript:void(0)"><i class="zmdi zmdi-sign-in"></i> Sign Out</a>
                             </li>
                         </ul>
-                    </li>
-                    <li class="select-menu hidden-xs hidden-sm">
-                        <select class="select form-control country" style="display:none">
-                            <option option="EN">English</option>
-                            <option option="ES">Español</option>
-                            <option option="FN"> Français</option>
-                            <option option="IT">Italiano</option>
-                        </select>
                     </li>
                     <li>
                         <a href="javascript:void(0)" data-navsearch-open>
@@ -273,5 +267,14 @@
 </div>
 <script src="{{url('assets/js/vendor.bundle.js')}}"></script>
 <script src="{{url('assets/js/app.bundle.js')}}"></script>
+<script src="{{url('js/notifier.js')}}"></script>
+<script>
+    $.ajaxSetup({
+        headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        }
+    });
+</script>
+@yield('scripts')
 </body>
 </html>

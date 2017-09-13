@@ -1,0 +1,111 @@
+/*
+Theme Name: Digrand
+Theme URL: owl-themes.net
+Author: Owl-themes
+Author URL: http://themeforest.net/user/owl-template
+Description: ThemeForest Template
+Version: 1.0
+*/
+
+
+h1:after {background-color: #73AE20;}
+h2:after {background-color: #73AE20;}
+h3:after {background-color: #73AE20;}
+h4:after {background-color: #73AE20;}
+h5:after {background-color: #73AE20;}
+h6:after {background-color: #73AE20;}
+
+button {border-color: #73AE20;color: #73AE20;}
+button:hover, button.active, .button:hover , .bottom_color:hover , .button_white:hover {border-color: #73AE20;  background-color: #73AE20;}
+.button {border-color:#73AE20;color: #73AE20;}
+.bottom_color {border-color: #73AE20; color: #73AE20;}
+
+blockquote:before {color: #73AE20;}
+article ul li:before {color: #73AE20;}
+.slideshow .owl-nav div:hover {color: #73AE20;}
+.info_block .icon {background: #73AE20;}
+.info_block .text_block a {background-color: #73AE20;}
+.info_block .text_block a:hover {color: #73AE20;}
+.menu-left-button {color: #73AE20;}
+.menu-left-button.fixed:hover {background: #73AE20;}
+.container_left_menu .close-button {color: #73AE20;}
+.map-info i {color: #73AE20;}
+.about_us .item .image {border-color: #73AE20; color: #73AE20;}
+.portfolio_content figure.effect-julia .hover_title .h1:after {background-color: #73AE20;}
+.portfolio_content #filter li.active span:after {outline: 1px solid #73AE20; border-color: #73AE20;}
+.portfolio_content .open_more_url a:hover, .portfolio_content .open_more a:hover{color: #73AE20;}
+.portfolio_content .open_more span:hover {color: #73AE20;}
+.portfolio_content .item:hover .portfolio_text_block span:after {background-color: #73AE20;}
+.plans .item_vn:hover {margin-top: 0; border-color: #73AE20;}
+.ultra_services .icon_block {color: #73AE20; border-color:#73AE20;}
+.our_team .item .name:after {background-color: #73AE20;}
+.review .item .image .quote {color: #73AE20;}
+.white-popup ul li:before {color: #73AE20;}
+.popup_content .h2:after {background-color: #73AE20;}
+.popup_content .mblockgetplan {color: #73AE20;}
+.tab_content ul li:before {color: #73AE20;}
+.ac-custom label::before {border-color:#73AE20;}
+.ac-custom input[type="radio"]:checked + label {color: #73AE20;}
+.ac-custom input[type="checkbox"]:checked + label, .ac-custom input[type="radio"]:checked + label {color: #73AE20;}
+.ac-custom svg path {stroke: #73AE20;}
+.infobox .close_button:hover {color: #73AE20;}
+.infobox_genearal i, .infobox_genearal .close_button i {color: #73AE20;}
+.accordion ul li:before {color: #73AE20;}
+.blog .fon_blog_title h2:after {background-color: #73AE20;}
+
+#scroller {background-image: url("../../images/scroller_green.png");}
+@media (-webkit-min-device-pixel-ratio: 1.5) {
+    #scroller {background-image: url("../../images/scroller_green@2x.png");}
+}
+
+.animsition-loading {border-top-color: #73AE20;border-right-color: #73AE20;border-bottom-color: #73AE20;}
+
+/*cbp Grid Gallery*/
+.grid-slideshow nav span{color:#73AE20;}
+.grid-slideshow nav span.nav-close{color:#73AE20;}
+
+/*liquid-slider*/
+.ls-nav a:hover{border-color: #73AE20;}
+.ls-nav .current a{border-color: #73AE20;}
+
+/*input css*/
+.input__field:focus {border-color: #73AE20;}
+.input__field--akira:focus + .input__label--akira .input__label-content--akira,
+.input--filled .input__label-content--akira { color: #73AE20;}
+
+/*select css*/
+.cs-skin-underline ul span {background: #73AE20;}
+.cs-skin-underline.cs-active > span::after {color: #73AE20;}
+.cs-active  > span { border-color: #73AE20!important; outline-color:#73AE20;color: #73AE20;}
+.cs-skin-underline .cs-options li span:hover, .cs-skin-underline .cs-options li.cs-focus span, .cs-skin-underline li.cs-selected span {color: #73AE20;}
+
+/*jquery ui css*/
+.ui-accordion .ui-accordion-content{border-color:#73AE20;}
+.ui-tabs .ui-tabs-nav li.ui-tabs-active{border-color:#73AE20;}
+.ui-state-hover,.ui-widget-content .ui-state-hover,.ui-widget-header .ui-state-hover,.ui-state-focus,.ui-widget-content .ui-state-focus,.ui-widget-header .ui-state-focus{color:#73AE20!important;}
+.ui-state-hover a,.ui-state-hover a:hover,.ui-state-hover a:link,.ui-state-hover a:visited,.ui-state-focus a,.ui-state-focus a:hover,.ui-state-focus a:link,.ui-state-focus a:visited{text-decoration:none;color:#73AE20!important;}
+.ui-state-active,.ui-widget-content .ui-state-active,.ui-widget-header .ui-state-active{font-weight:normal;color:#73AE20!important;}
+.ui-state-active a,.ui-state-active a:link,.ui-state-active a:visited{text-decoration:none;color:#73AE20;}
+.ui-state-active{border-color: #73AE20;}
+.ui-state-active , .ui-state-hover{color:#73AE20;}
+.ui-state-hover .ui-icon:before{color:#73AE20;}
+.ui-state-focus .ui-icon:before,.ui-state-active .ui-icon:before{color:#73AE20;}
+
+/*flexnav*/
+@media (min-width:991px){
+    .flexnav>li>a:hover{border-color:#73AE20;}
+    .flexnav .navigation_right_content_right:hover{border-color:#73AE20!important;background-color:#73AE20!important;}
+    .flexnav>.item-with-ul:hover> a{border-color:#73AE20;}
+    .flexnav>li>a:hover, .flexnav>li>a.active, .flexnav>li.item-with-ul>a.active {border-bottom-color: #73AE20;}
+}
+@media all and (max-width:991px){
+    .flexnav{border-color:#73AE20;}
+    .flexnav.show{border-color:#73AE20;}
+    .flexnav .active{color:#73AE20;}
+    .menu-button:hover .touch-button{background-color:#73AE20;}
+    .flexnav .item-with-ul:hover .touch-button:hover{background-color:#73AE20;}
+    .submenu-open{background-color:#73AE20!important;}
+    .menu-button {color:#73AE20;}
+    .menu-button.active{color:#73AE20!important;}
+    .flexnav li a {border-bottom-color: #667b49;}
+}

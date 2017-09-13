@@ -1,0 +1,38 @@
+/*
+Theme Name: Digrand
+Theme URL: owl-themes.net
+Author: Owl-themes
+Author URL: http://themeforest.net/user/owl-template
+Description: ThemeForest Template
+Version: 1.0
+*/
+
+
+/*blog*/
+.col_1 .blog_item .blog_item_social_1_col ul li:first-child a {border-color:#73AE20;}
+.col_1 .blog_item .blog_item_social_1_col ul li a {border-color:#73AE20;color: #73AE20;}
+.col_1 .blog_item .blog_item_social_1_col ul li a:hover {background-color: #73AE20;}
+.col_1 .blog_item .blog_title:after {background-color: #73AE20;}
+.col_2 .blog_item .blog_item_social_1_col ul li:first-child a {border-color:#73AE20;}
+.col_2 .blog_item .blog_item_social_1_col ul li a {border-color:#73AE20;color: #73AE20;}
+.col_2 .blog_item .blog_item_social_1_col ul li a:hover {background-color: #73AE20;}
+.col_2 .blog_item .blog_title:after {background-color: #73AE20;}
+.col_3 .blog_item .blog_item_social_1_col ul li:first-child a {border-color:#73AE20;}
+.col_3 .blog_item .blog_item_social_1_col ul li a {border-color:#73AE20;color: #73AE20;}
+.col_3 .blog_item .blog_item_social_1_col ul li a:hover {background-color: #73AE20;}
+.col_3 .blog_item .blog_title:after {background-color: #73AE20;}
+.blog .fon_blog_title h2:after {background-color: #73AE20;}
+.blog .blog_item .blog_title:after {background-color: #73AE20;}
+.blog .blog_item .blog_item_social ul li:first-child a {border-color:#73AE20;}
+.blog .blog_item .blog_item_social ul li a {border-color:#73AE20;color: #73AE20;}
+.blog .blog_item .blog_item_social ul li a:hover {background-color: #73AE20;}
+.blog_post .h3:after {background-color: #73AE20;}
+.coments_content {border-color:#73AE20;}
+.leave_coment {border-color:#73AE20;}
+.blog .block_title:after {background-color: #73AE20;}
+.blog .icon_block {color: #73AE20;border-color:#73AE20;}
+.blog .icon_block:hover {background: #73AE20;}
+.blog .block_tags_content a {border-color:#73AE20; color: #73AE20;}
+.blog .block_tags_content a:hover {background: #73AE20;}
+.blog .pagination li a:hover {border-color:#73AE20; color: #73AE20;}
+.blog .pagination li .active {border-color:#73AE20; color: #73AE20;}

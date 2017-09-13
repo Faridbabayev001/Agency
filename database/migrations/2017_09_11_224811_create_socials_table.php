@@ -16,9 +16,11 @@ class CreateSocialsTable extends Migration
         Schema::create('socials', function (Blueprint $table) {
             $table->increments('id');
             $table->string('icon');
+            $table->integer('team_id')->unsigned()->index();
             $table->string('name');
             $table->string('link');
             $table->timestamps();
+            $table->foreign('team_id')->references('id')->on('teams')->onDelete('cascade');
         });
     }
 

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Backend;
 
+use App\Social;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
@@ -35,7 +36,14 @@ class SocialController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->validate($request,[
+            'icon' => 'required',
+            'name' => 'required',
+            'link' => 'required',
+        ]);
+        Social::create($request->all());
+        $request->session()->flash('add_social','Social added');
+        return back();
     }
 
     /**
