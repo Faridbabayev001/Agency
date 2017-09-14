@@ -2,13 +2,11 @@
 
 namespace App\Http\Controllers\Backend;
 
-use App\Http\Requests\PostRequest;
-use App\Post;
-use App\PostTag;
+use App\WorkTag;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
-class PostController extends Controller
+class WorkTagController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -17,7 +15,7 @@ class PostController extends Controller
      */
     public function index()
     {
-       return app('App\Http\Controllers\Backend\PageController')->add_data();
+        return app('App\Http\Controllers\Backend\PageController')->add_data();
     }
 
     /**
@@ -36,26 +34,14 @@ class PostController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(PostRequest $request)
+    public function store(Request $request)
     {
-        $slug = str_slug($request->title_en);
-        $image_name =  rand(1,99999).'-'.$slug.'.'.$request->file('image')->getClientOriginalExtension();
-        $request->file('image')->move(public_path('post'),$image_name);
-        $data['image'] = $image_name;
-        $data['slug'] = $slug;
-        $data['title_en'] = $request->title_en;
-        $data['category_id'] = $request->category_id;
-        $data['title_az'] = $request->title_az;
-        $data['text_en'] = $request->text_en;
-        $data['text_az'] = $request->text_az;
-        $data['status'] = $request->status;
-        $data['meta_keyword'] = $request->meta_keyword;
-        $post = Post::create($data);
-        foreach ($request->tags as $tag)
-        {
-            PostTag::create(['post_id' => $post->id,'tag_id' => $tag]);
-        }
-        $request->session()->flash('add_post','Post added');
+        $this->validate($request,[
+            'name_en' => 'required',
+            'name_az' => 'required',
+        ]);
+        WorkTag::create($request->all());
+        $request->session()->flash('add_work_tag','Work Tag added');
         return back();
     }
 

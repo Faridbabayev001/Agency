@@ -210,22 +210,21 @@
                                 <a href="#"><span></span>Post </a>
                                 <ul class="nav-sub" data-index="1" style="display: none;">
                                     <li><a href="layout-fullwidth-v1.html">Posts</a></li>
-                                    <li><a href="layout-fullwidth-v2.html">Add Post</a></li>
+                                    <li><a href="{{route('post.index')}}">Add Post</a></li>
                                 </ul>
                             </li>
                             <li class="nav-dropdown">
                                 <a href="#"><span></span>Category</a>
                                 <ul class="nav-sub" data-index="2" style="display: none;">
                                     <li><a href="layout-boxed-v1.html">Categoires</a></li>
-                                    <li><a href="layout-boxed-v2.html">Add category</a></li>
-                                    <li><a href="layout-boxed-v3.html">Boxed Layout v3</a></li>
+                                    <li><a href="{{route('category.index')}}">Add category</a></li>
                                 </ul>
                             </li>
                             <li class="nav-dropdown">
-                                <a href="#"><span></span>Left Side Nav</a>
+                                <a href="#"><span></span>Tag</a>
                                 <ul class="nav-sub" data-index="3" style="display: none;">
-                                    <li><a href="layout-left-sidenav-v1.html">Left Side Nav v1</a></li>
-                                    <li><a href="layout-left-sidenav-v2.html">Left Side Nav v2</a></li>
+                                    <li><a href="layout-left-sidenav-v1.html">Tags</a></li>
+                                    <li><a href="{{route('tag.index')}}">Add Tags</a></li>
 
                                 </ul>
                             </li>

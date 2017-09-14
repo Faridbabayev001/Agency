@@ -30,14 +30,14 @@
                                             <div class="card alt-card">
                                                 <div class="card-body">
                                                     <ul class="nav nav-pills nav-stacked" role="tablist">
-                                                        <li role="presentation" class="active"><a href="#sidenav1" aria-controls="sidenav1" role="tab" data-toggle="tab">Add Post</a></li>
-                                                        <li role="presentation"><a href="#sidenav2" aria-controls="sidenav2" role="tab" data-toggle="tab">Add Tag</a></li>
-                                                        <li role="presentation"><a href="#sidenav3" aria-controls="sidenav3" role="tab" data-toggle="tab">Add Category</a></li>
-                                                        <li role="presentation"><a href="#sidenav4" aria-controls="sidenav4" role="tab" data-toggle="tab">Add Team</a></li>
-                                                        <li role="presentation"><a href="#sidenav5" aria-controls="sidenav5" role="tab" data-toggle="tab">Add Social</a></li>
-                                                        <li role="presentation"><a href="#sidenav6" aria-controls="sidenav6" role="tab" data-toggle="tab">Add Question</a></li>
-                                                        <li role="presentation"><a href="#sidenav7" aria-controls="sidenav7" role="tab" data-toggle="tab">Sidenav item 7</a></li>
-                                                        <li role="presentation"><a href="#sidenav8" aria-controls="sidenav8" role="tab" data-toggle="tab">Sidenav item 8</a></li>
+                                                        <li role="presentation" {{Request::is('admin/post') ? "class=active" : ''}}><a href="#sidenav1" aria-controls="sidenav1" role="tab" data-toggle="tab">Add Post</a></li>
+                                                        <li role="presentation" {{Request::is('admin/tag') ? "class=active" : ''}}><a href="#sidenav2" aria-controls="sidenav2" role="tab" data-toggle="tab">Add Tag</a></li>
+                                                        <li role="presentation" {{Request::is('admin/category') ? "class=active" : ''}}><a href="#sidenav3" aria-controls="sidenav3" role="tab" data-toggle="tab">Add Category</a></li>
+                                                        <li role="presentation" {{Request::is('admin/team') ? "class=active" : ''}}><a href="#sidenav4" aria-controls="sidenav4" role="tab" data-toggle="tab">Add Team</a></li>
+                                                        <li role="presentation" {{Request::is('admin/social') ? "class=active" : ''}}><a href="#sidenav5" aria-controls="sidenav5" role="tab" data-toggle="tab">Add Social</a></li>
+                                                        <li role="presentation" {{Request::is('admin/question') ? "class=active" : ''}}><a href="#sidenav6" aria-controls="sidenav6" role="tab" data-toggle="tab">Add Question</a></li>
+                                                        <li role="presentation" {{Request::is('admin/work-tag') ? "class=active" : ''}}><a href="#sidenav7" aria-controls="sidenav7" role="tab" data-toggle="tab">Add Work Tag</a></li>
+                                                        <li role="presentation" {{Request::is('admin/work') ? "class=active" : ''}}><a href="#sidenav8" aria-controls="sidenav8" role="tab" data-toggle="tab">Add Work</a></li>
                                                         <li role="presentation"><a href="#sidenav9" aria-controls="sidenav9" role="tab" data-toggle="tab">Sidenav item 9</a></li>
                                                         <li role="presentation"><a href="#sidenav10" aria-controls="sidenav10" role="tab" data-toggle="tab">Sidenav item 10</a></li>
                                                     </ul>
@@ -50,13 +50,14 @@
                                     <div class="col-xs-12" role="main">
                                         <!-- Tab panes -->
                                         <div class="tab-content">
-                                            <section role="tabpanel" class="tab-pane active" id="sidenav1">
+                                            <section role="tabpanel" class="tab-pane {{Request::is('admin/post') ? "active" : ''}}" id="sidenav1">
                                                 <div class="card">
                                                     <header class="card-heading">
                                                         <h2 class="card-title">Add Post</h2>
                                                     </header>
                                                     <div class="card-body">
-                                                        <form id="form-horizontal" method="" class="form-horizontal" novalidate="novalidate">
+                                                        <form id="form-horizontal" action="{{route('post.store')}}" method="post" class="form-horizontal" novalidate="novalidate" enctype="multipart/form-data">
+                                                            {{csrf_field()}}
                                                             <div class="form-group is-empty">
                                                                 <label for="nameInput" class="col-sm-2 control-label">Title EN</label>
                                                                 <div class="col-sm-10">
@@ -72,23 +73,23 @@
                                                             <div class="form-group is-empty">
                                                                 <label for="keyword" class="col-sm-2 control-label">Keyword</label>
                                                                 <div class="col-sm-10">
-                                                                    <input id="keyword" type="text" name="meta_keyword" placeholder="Enter keywords for SEO" data-rule-required="true" data-rule-rangelength="[10,30]" data-rule-email="true" class="form-control" aria-required="true">
+                                                                    <input id="keyword" type="text" name="meta_keyword" placeholder="Enter keywords for SEO" data-rule-required="true"  class="form-control" aria-required="true">
                                                                 </div>
                                                             </div>
                                                             <div class="form-group is-empty">
                                                                 <label for="CategoryInput" class="col-sm-2 control-label">Category</label>
                                                                 <div class="col-sm-10">
                                                                     <select class="select form-control" name="category_id" id="CategoryInput">
-                                                                        <option value="e">qqq</option>
-                                                                        <option value="wwe">www</option>
-                                                                        <option value="ewwwww">sss</option>
+                                                                       @foreach($categories as $category)
+                                                                            <option value="{{$category->id}}">{{$category->name_en}}</option>
+                                                                        @endforeach
                                                                     </select>
                                                                 </div>
                                                             </div>
                                                             <div class="form-group is-empty">
                                                                 <label for="CategoryInput" class="col-sm-2 control-label">Tag</label>
                                                                 <div class="col-sm-10">
-                                                                    <select class="select form-control" name="tag" id="CategoryInput" multiple>
+                                                                    <select class="select form-control" name="tags[]" id="CategoryInput" multiple>
                                                                         @foreach($tags as $tag)
                                                                             <option value="{{$tag->id}}">{{$tag->name_en}}</option>
                                                                         @endforeach
@@ -147,7 +148,7 @@
                                                     </div>
                                                 </div>
                                             </section>
-                                            <section role="tabpanel" class="tab-pane" id="sidenav2">
+                                            <section role="tabpanel" class="tab-pane {{Request::is('admin/tag') ? "active" : ''}}" id="sidenav2">
                                                 <div class="card">
                                                     <header class="card-heading">
                                                         <h2 class="card-title">Add Tag</h2>
@@ -176,7 +177,7 @@
                                                     </div>
                                                 </div>
                                             </section>
-                                            <section role="tabpanel" class="tab-pane" id="sidenav3">
+                                            <section role="tabpanel" class="tab-pane {{Request::is('admin/category') ? "active" : ''}}" id="sidenav3">
                                                 <div class="card">
                                                     <header class="card-heading">
                                                         <h2 class="card-title">Add Category</h2>
@@ -347,61 +348,99 @@
                                                     </div>
                                                 </div>
                                             </section>
-                                            <section role="tabpanel" class="tab-pane" id="sidenav7">
+                                            <section role="tabpanel" class="tab-pane {{Request::is('admin/work-tag') ? "active" : ''}}" id="sidenav7">
                                                 <div class="card">
                                                     <header class="card-heading">
-                                                        <h2 class="card-title">Card Title 7</h2>
+                                                        <h2 class="card-title">Add Work Tag</h2>
                                                     </header>
                                                     <div class="card-body">
-                                                        <img src="assets/img/headers/header-md-07.jpg" class="m-b-30" alt="">
-                                                        <p>Deep v ex celiac twee. Reprehenderit affogato chia, roof party heirloom literally esse sartorial godard ennui. Enim lo-fi everyday carry, normcore anim ugh PBR&amp;B sartorial sunt fashion axe delectus. Assumenda vegan celiac taxidermy
-                                                            incididunt. Flannel shabby chic before they sold out tilde, helvetica echo park pop-up gluten-free consequat 3 wolf moon sriracha knausgaard. Celiac culpa bicycle rights, bespoke street art wolf fanny pack et irony cillum in. Thundercats
-                                                            vinyl green juice celiac whatever excepteur proident locavore elit, dolor ea viral twee four loko disrupt.
-                                                        </p>
-                                                        <p>
-                                                            Fashion axe kitsch marfa, art party gluten-free beard meditation lumbersexual pinterest sapiente. Aute portland nostrud four dollar toast, organic typewriter cold-pressed wolf do chartreuse godard. Before they sold out consequat voluptate man bun, craft
-                                                            beer ullamco mlkshk quis health goth cold-pressed yuccie pork belly. Biodiesel tilde ethical, delectus fap marfa four dollar toast thundercats. Photo booth ad flannel, tempor locavore adipisicing distillery forage venmo sed chillwave chia
-                                                            whatever bitters. Helvetica listicle hella deep v ugh. Kickstarter pop-up plaid, selfies street art health goth tempor celiac occupy knausgaard.
-                                                        </p>
-                                                        <p>
-                                                            Celiac tilde commodo four dollar toast. Scenester kale chips roof party PBR&amp;B, organic everyday carry cornhole tumblr kickstarter marfa salvia photo booth voluptate gastropub ennui. Austin craft beer next level whatever beard. Leggings tote bag taxidermy
-                                                            occupy, heirloom deep v exercitation ea normcore irure banh mi hella fashion axe et. Mumblecore intelligentsia mustache, id photo booth tofu est. In kale chips voluptate literally, gastropub YOLO consequat fugiat swag gochujang sint est
-                                                            ugh 90's. Sriracha bitters meh fanny pack try-hard readymade, stumptown street art blue bottle.
-                                                        </p>
-                                                        <p>
-                                                            Paleo flexitarian bushwick letterpress, ea migas yr adipisicing. Man bun tacos tumblr kombucha, yuccie banjo affogato dolore gentrify retro chartreuse. Anim austin tempor ethical, sapiente food truck fanny pack farm-to-table. Culpa keytar esse tilde hoodie,
-                                                            art party nostrud messenger bag authentic helvetica kinfolk cred eu affogato forage. Biodiesel vero proident scenester, normcore mustache umami sint. Echo park adipisicing portland, ethical et hammock exercitation etsy labore health goth
-                                                            enim velit green juice jean shorts esse. Lo-fi pinterest accusamus cardigan lumbersexual tempor in pitchfork, four loko narwhal.
-                                                        </p>
+                                                        <form id="form-horizontal" action="{{route('work-tag.store')}}" method="post" class="form-horizontal" novalidate="novalidate">
+                                                           {{csrf_field()}}
+                                                            <div class="form-group is-empty">
+                                                                <label for="nameInput" class="col-sm-2 control-label">Name EN</label>
+                                                                <div class="col-sm-10">
+                                                                    <input id="nameInput" type="text" name="name_en" placeholder="Enter question for English language" data-rule-required="true" minlength="2" class="form-control" aria-required="true">
+                                                                </div>
+                                                            </div>
+                                                            <div class="form-group is-empty">
+                                                                <label for="nameInput" class="col-sm-2 control-label">Name AZ</label>
+                                                                <div class="col-sm-10">
+                                                                    <input id="nameInput" type="text" name="name_az" placeholder="Enter question for Azerbaijan language" data-rule-required="true" minlength="2" class="form-control" aria-required="true">
+                                                                </div>
+                                                            </div>
+                                                            <div class="form-group">
+                                                                <div class="col-sm-offset-2 col-sm-10">
+                                                                    <button type="submit" class="btn btn-primary">Submit</button>
+                                                                </div>
+                                                            </div>
+                                                        </form>
                                                     </div>
                                                 </div>
                                             </section>
-                                            <section role="tabpanel" class="tab-pane" id="sidenav8">
+                                            <section role="tabpanel" class="tab-pane {{Request::is('admin/work') ? "active" : ''}}" id="sidenav8" >
                                                 <div class="card">
                                                     <header class="card-heading">
-                                                        <h2 class="card-title">Card Title 8</h2>
+                                                        <h2 class="card-title">Add Work</h2>
                                                     </header>
                                                     <div class="card-body">
-                                                        <img src="assets/img/headers/header-md-08.jpg" class="m-b-30" alt="">
-                                                        <p>Deep v ex celiac twee. Reprehenderit affogato chia, roof party heirloom literally esse sartorial godard ennui. Enim lo-fi everyday carry, normcore anim ugh PBR&amp;B sartorial sunt fashion axe delectus. Assumenda vegan celiac taxidermy
-                                                            incididunt. Flannel shabby chic before they sold out tilde, helvetica echo park pop-up gluten-free consequat 3 wolf moon sriracha knausgaard. Celiac culpa bicycle rights, bespoke street art wolf fanny pack et irony cillum in. Thundercats
-                                                            vinyl green juice celiac whatever excepteur proident locavore elit, dolor ea viral twee four loko disrupt.
-                                                        </p>
-                                                        <p>
-                                                            Fashion axe kitsch marfa, art party gluten-free beard meditation lumbersexual pinterest sapiente. Aute portland nostrud four dollar toast, organic typewriter cold-pressed wolf do chartreuse godard. Before they sold out consequat voluptate man bun, craft
-                                                            beer ullamco mlkshk quis health goth cold-pressed yuccie pork belly. Biodiesel tilde ethical, delectus fap marfa four dollar toast thundercats. Photo booth ad flannel, tempor locavore adipisicing distillery forage venmo sed chillwave chia
-                                                            whatever bitters. Helvetica listicle hella deep v ugh. Kickstarter pop-up plaid, selfies street art health goth tempor celiac occupy knausgaard.
-                                                        </p>
-                                                        <p>
-                                                            Celiac tilde commodo four dollar toast. Scenester kale chips roof party PBR&amp;B, organic everyday carry cornhole tumblr kickstarter marfa salvia photo booth voluptate gastropub ennui. Austin craft beer next level whatever beard. Leggings tote bag taxidermy
-                                                            occupy, heirloom deep v exercitation ea normcore irure banh mi hella fashion axe et. Mumblecore intelligentsia mustache, id photo booth tofu est. In kale chips voluptate literally, gastropub YOLO consequat fugiat swag gochujang sint est
-                                                            ugh 90's. Sriracha bitters meh fanny pack try-hard readymade, stumptown street art blue bottle.
-                                                        </p>
-                                                        <p>
-                                                            Paleo flexitarian bushwick letterpress, ea migas yr adipisicing. Man bun tacos tumblr kombucha, yuccie banjo affogato dolore gentrify retro chartreuse. Anim austin tempor ethical, sapiente food truck fanny pack farm-to-table. Culpa keytar esse tilde hoodie,
-                                                            art party nostrud messenger bag authentic helvetica kinfolk cred eu affogato forage. Biodiesel vero proident scenester, normcore mustache umami sint. Echo park adipisicing portland, ethical et hammock exercitation etsy labore health goth
-                                                            enim velit green juice jean shorts esse. Lo-fi pinterest accusamus cardigan lumbersexual tempor in pitchfork, four loko narwhal.
-                                                        </p>
+                                                        <form id="form-horizontal" action="{{route('work.store')}}" method="post" class="form-horizontal" novalidate="novalidate" enctype="multipart/form-data">
+                                                            {{csrf_field()}}
+                                                            <div class="form-group is-empty">
+                                                                <label for="CategoryInput" class="col-sm-2 control-label">Work Tag</label>
+                                                                <div class="col-sm-10">
+                                                                    <select class="select form-control" name="work_tag_id" id="CategoryInput">
+                                                                        @foreach($work_tags as $work_tag)
+                                                                            <option value="{{$work_tag->id}}">{{$work_tag->name_en}}</option>
+                                                                        @endforeach
+                                                                    </select>
+                                                                </div>
+                                                            </div>
+                                                            <div class="form-group is-fileinput is-empty">
+                                                                <label for="fileInput" class="col-sm-2 control-label">Image</label>
+                                                                <div class="col-sm-10">
+                                                                    <div class="input-group">
+                                                                        <input id="fileInput" type="file" name="image" data-buttontext="Choose file" data-buttonname="btn-outline btn-primary" data-iconname="ion-image mr-5" data-rule-required="true" data-rule-accept="image/*" class="filestyle" aria-required="true">
+                                                                        <div class="input-group">
+                                                                            <input type="text" readonly="" class="form-control" placeholder="Upload image file...">
+                                                                            <span class="input-group-btn input-group-sm">
+                                                                              <button type="button" class="btn btn-primary btn-sm">
+                                                                                File
+                                                                              </button>
+                                                                            </span>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="form-group is-empty">
+                                                                <label for="nameInput" class="col-sm-2 control-label">Title EN</label>
+                                                                <div class="col-sm-10">
+                                                                    <input id="nameInput" type="text" name="title_en" placeholder="Enter question for English language" data-rule-required="true" minlength="2" class="form-control" aria-required="true">
+                                                                </div>
+                                                            </div>
+                                                            <div class="form-group is-empty">
+                                                                <label for="nameInput" class="col-sm-2 control-label">Title AZ</label>
+                                                                <div class="col-sm-10">
+                                                                    <input id="nameInput" type="text" name="title_az" placeholder="Enter question for Azerbaijan language" data-rule-required="true" minlength="2" class="form-control" aria-required="true">
+                                                                </div>
+                                                            </div>
+                                                            <div class="form-group is-empty">
+                                                                <label for="nameInput" class="col-sm-2 control-label">Description EN</label>
+                                                                <div class="col-sm-10">
+                                                                    <input id="nameInput" type="text" name="desc_en" placeholder="Enter question for English language" data-rule-required="true" minlength="2" class="form-control" aria-required="true">
+                                                                </div>
+                                                            </div>
+                                                            <div class="form-group is-empty">
+                                                                <label for="nameInput" class="col-sm-2 control-label">Description AZ</label>
+                                                                <div class="col-sm-10">
+                                                                    <input id="nameInput" type="text" name="desc_az" placeholder="Enter question for Azerbaijan language" data-rule-required="true" minlength="2" class="form-control" aria-required="true">
+                                                                </div>
+                                                            </div>
+                                                            <div class="form-group">
+                                                                <div class="col-sm-offset-2 col-sm-10">
+                                                                    <button type="submit" class="btn btn-primary">Submit</button>
+                                                                </div>
+                                                            </div>
+                                                        </form>
                                                     </div>
                                                 </div>
                                             </section>
@@ -489,6 +528,15 @@
         @endif
         @if(Session::has('add_team'))
             notifier.show('Success' , '{{Session::get('add_team')}}', 'success', '/img/ok-48.png', 4000);
+        @endif
+        @if(Session::has('add_post'))
+            notifier.show('Success' , '{{Session::get('add_post')}}', 'success', '/img/ok-48.png', 4000);
+        @endif
+        @if(Session::has('add_work_tag'))
+            notifier.show('Success' , '{{Session::get('add_work_tag')}}', 'success', '/img/ok-48.png', 4000);
+        @endif
+         @if(Session::has('add_work'))
+            notifier.show('Success' , '{{Session::get('add_work')}}', 'success', '/img/ok-48.png', 4000);
         @endif
     </script>
 @endsection

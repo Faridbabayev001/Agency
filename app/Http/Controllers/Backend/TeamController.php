@@ -39,7 +39,7 @@ class TeamController extends Controller
     {
         $slug = str_slug($request->name_en);
         $image_name =  rand(1,99999).'-'.$slug.'.'.$request->file('avatar')->getClientOriginalExtension();
-        $request->file('avatar')->move(public_path('post'),$image_name);
+        $request->file('avatar')->move(public_path('team'),$image_name);
         $data['avatar'] = $image_name;
         $data['name_en'] = $request->name_en;
         $data['name_az'] = $request->name_az;

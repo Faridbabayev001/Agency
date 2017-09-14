@@ -18,6 +18,7 @@ class CreatePostsTable extends Migration
             $table->integer('category_id')->unsigned()->index();
             $table->string('meta_keyword');
             $table->string('slug');
+            $table->string('image');
             $table->boolean('status');
             $table->string('title_en');
             $table->string('title_az');

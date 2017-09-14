@@ -19,7 +19,10 @@ class CreateSettingsTable extends Migration
             $table->string('meta_title_az');
             $table->text('meta_desc_en');
             $table->text('meta_desc_az');
-            $table->string('address');
+            $table->string('address_en');
+            $table->string('address_az');
+            $table->string('lat');
+            $table->string('lng');
             $table->string('email');
             $table->string('facebook_link');
             $table->string('twitter_link');

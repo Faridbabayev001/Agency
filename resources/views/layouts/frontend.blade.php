@@ -1,3 +1,6 @@
+@php
+
+@endphp
 <!DOCTYPE html>
 <html lang="en" class="no-js">
 
@@ -66,29 +69,20 @@
                                     <li><a href="demo2.html">Home Video (Green color)</a></li>
                                 </ul>
                             </li>
-                            <li><a href="demo2.html#about_us">About Us</a></li>
-                            <li><a href="demo2.html#portfolio">Our works</a></li>
-                            <li><a href="demo2.html#price">Price & Plans</a></li>
-                            <li><a href="demo2.html#services">Features</a></li>
+                            <li><a href="#about_us">@lang('header.about_us')</a></li>
+                            <li><a href="#portfolio">@lang('header.portfolio')</a></li>
+                            <li><a href="#services">@lang('header.features')</a></li>
                             <li>
-                                <a href="demo2.html#latest_blog">Blog</a>
-                                <ul>
-                                    <li><a href="blog_left_sidebar_green.html">Full width image</a></li>
-                                    <li><a href="blog_list_left_sidebar_green.html">Blog List</a></li>
-                                    <li><a href="blog_2_col_left_sidebar_green.html">Blog Grid</a></li>
-                                    <li><a href="blog_3_col_left_sidebar_green.html">3 Columns grid</a></li>
-                                    <li><a href="blog_right_sidebar_green.html">Right Sidebar</a></li>
-                                    <li><a href="blog_detail_green.html">Blog post</a></li>
-                                </ul>
+                                <a href="#latest_blog">@lang('header.blog')</a>
                             </li>
                             <li>
-                                <a href="element_green.html">Element</a>
+                                <a href="">@lang('header.language')</a>
                                 <ul>
-                                    <li><a href="{{route('set_locale',['locale' => 'en'])}}">English</a></li>
-                                    <li><a href="{{route('set_locale',['locale' => 'az'])}}">Azerbaijan</a></li>
+                                    <li><a href="{{route('set_locale',['locale' => 'en'])}}">@lang('header.english')</a></li>
+                                    <li><a href="{{route('set_locale',['locale' => 'az'])}}">@lang('header.azerbaijan')</a></li>
                                 </ul>
                             </li>
-                            <li><a href="demo2.html#contacts">Contact</a></li>
+                            <li><a href="#contacts">@lang('header.contact')</a></li>
                         </ul>
                     </nav>
                     <!-- Top header navigation end -->
@@ -102,36 +96,21 @@
                                 <div class="title">Our menu</div>
                                 <div id="dl-menu" class="dl-menuwrapper">
                                     <ul class="dl-menu dl-menuopen">
-                                        <li><a href="demo2.html#about_us" class="scrolurl">About Us</a></li>
-                                        <li><a href="demo2.html#portfolio" class="scrolurl">Our works</a></li>
-                                        <li><a href="demo2.html#price" class="scrolurl">Price & Plans</a></li>
-                                        <li><a href="demo2.html#services" class="scrolurl">Features</a></li>
+                                        <li><a href="#about_us" class="scrolurl">About Us</a></li>
+                                        <li><a href="#portfolio" class="scrolurl">Our works</a></li>
+                                        <li><a href="#price" class="scrolurl">Price & Plans</a></li>
+                                        <li><a href="#services" class="scrolurl">Features</a></li>
                                         <li>
-                                            <a href="element_green.html">Element</a>
+                                            <a href="">Language</a>
                                             <ul class="dl-submenu">
-                                                <li><a href="element_green.html#heading">Heading</a></li>
-                                                <li><a href="element_green.html#list">List</a></li>
-                                                <li><a href="element_green.html#select">Select and Input</a></li>
-                                                <li><a href="element_green.html#list">Radio and Checkbox</a></li>
-                                                <li><a href="element_green.html#textarea">Textarea</a></li>
-                                                <li><a href="element_green.html#button">Button</a></li>
-                                                <li><a href="element_green.html#popups">Popup</a></li>
-                                                <li><a href="element_green.html#tabsto">Tabs and Alert Message</a></li>
-                                                <li><a href="element_green.html#column">Column</a></li>
+                                                <li><a href="{{route('set_locale',['locale' => 'en'])}}">English</a></li>
+                                                <li><a href="{{route('set_locale',['locale' => 'az'])}}">Azerbaijan</a></li>
                                             </ul>
                                         </li>
                                         <li>
-                                            <a href="demo2.html#">Blog</a>
-                                            <ul class="dl-submenu">
-                                                <li><a href="blog_left_sidebar_green.html">Full width image</a></li>
-                                                <li><a href="blog_list_left_sidebar_green.html">Blog List</a></li>
-                                                <li><a href="blog_2_col_left_sidebar_green.html">Blog Grid</a></li>
-                                                <li><a href="blog_3_col_left_sidebar_green.html">3 Columns grid</a></li>
-                                                <li><a href="blog_right_sidebar_green.html">Right Sidebar</a></li>
-                                                <li><a href="blog_detail_green.html">Blog post</a></li>
-                                            </ul>
+                                            <a href="#">Blog</a>
                                         </li>
-                                        <li><a href="demo2.html#contacts" class="scrolurl">Contact</a></li>
+                                        <li><a href="#contacts" class="scrolurl">Contact</a></li>
                                     </ul>
                                 </div>
                             </div>
@@ -179,40 +158,34 @@
                     <div class="social">
                         <!-- Twitter -->
                         <div class="row top">
-                            <i class="fa fa-twitter fa-lg"></i>
-                            <span class="name">Twitter</span>
+                            <span class="name" style="margin-left: 10px;">Facebook</span>
                         </div>
                         <div class="row center twitter-container">
-                            <a class="twitter-timeline" href="https://twitter.com/Tom27Johnson" data-widget-id="679985187644649472" data-theme="dark" data-chrome="noheader nofooter noborders noscrollbar transparent" data-link-color="#333" data-tweet-limit="1">@Tom27Johnson</a>
-                            <script>
-                                ! function(d, s, id) {
-                                    var js, fjs = d.getElementsByTagName(s)[0],
-                                        p = /^http:/.test(d.location) ? 'http' : 'https';
-                                    if (!d.getElementById(id)) {
-                                        js = d.createElement(s);
-                                        js.id = id;
-                                        js.src = p + "://platform.twitter.com/widgets.js";
-                                        fjs.parentNode.insertBefore(js, fjs);
-                                    }
-                                }(document, "script", "twitter-wjs");
-                            </script>
+                            <div class="fb-page" data-href="https://www.facebook.com/gigcode/" data-tabs="messages" data-height="250"  data-small-header="true" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true"><blockquote cite="https://www.facebook.com/gigcode/" class="fb-xfbml-parse-ignore"><a href="https://www.facebook.com/gigcode/">GigCode</a></blockquote></div>
+                            <div id="fb-root"></div>
+                            <script>(function(d, s, id) {
+                                    var js, fjs = d.getElementsByTagName(s)[0];
+                                    if (d.getElementById(id)) return;
+                                    js = d.createElement(s); js.id = id;
+                                    js.src = "//connect.facebook.net/{{$language}}/sdk.js#xfbml=1&version=v2.10&appId=216223718844941";
+                                    fjs.parentNode.insertBefore(js, fjs);
+                                }(document, 'script', 'facebook-jssdk'));</script>
                         </div>
                         <!-- Twitter end -->
 
                         <!-- Social -->
                         <div class="row footer_item_social">
                             <ul>
-                                <li><a href="demo2.html#"><i class="fa fa-twitter fa-lg"></i></a></li>
-                                <li><a href="demo2.html#"><i class="fa fa-behance fa-lg"></i></a></li>
-                                <li><a href="demo2.html#"><i class="fa fa-linkedin fa-lg"></i></a></li>
-                                <li><a href="demo2.html#"><i class="fa fa-facebook fa-lg"></i></a></li>
+                                <li><a href="{{$setting->twitter_link}}" target="_blank"><i class="fa fa-twitter fa-lg"></i></a></li>
+                                <li><a href="{{$setting->linkedin_link}}" target="_blank"><i class="fa fa-linkedin fa-lg"></i></a></li>
+                                <li><a href="{{$setting->facebook_link}}" target="_blank"><i class="fa fa-facebook fa-lg"></i></a></li>
                             </ul>
                         </div>
                         <!-- Social end-->
 
                         <!-- Copyright -->
                         <div class="row powered">
-                            <p>Copyright © 2017 <a href="http://owl-themes.net/">Digrand</a></p>
+                            <p>Copyright © 2017 <a href="http://owl-themes.net/">GiG Code </a></p>
                         </div>
                         <div class="row copy">
                             All Rights Reserved
@@ -226,14 +199,12 @@
                     <div class="footer_menu">
                         <div class="title">Menu</div>
                         <ul class="left">
-                            <li><a href="demo2.html#about_us" class="skrolurl">About Us</a></li>
-                            <li><a href="demo2.html#portfolio" class="skrolurl">Our works</a></li>
-                            <li><a href="demo2.html#price" class="skrolurl">Price & Plans</a></li>
+                            <li><a href="#about_us" class="skrolurl">About Us</a></li>
+                            <li><a href="#portfolio" class="skrolurl">Our works</a></li>
                         </ul>
                         <ul class="right">
-                            <li><a href="demo2.html#services" class="skrolurl">Features</a></li>
-                            <li><a href="demo2.html#latest_blog" class="skrolurl">Blog</a></li>
-                            <li><a href="demo2.html#contacts" class="skrolurl">Contact</a></li>
+                            <li><a href="#services" class="skrolurl">Features</a></li>
+                            <li><a href="#latest_blog" class="skrolurl">Blog</a></li>
                         </ul>
 
                     </div>
@@ -246,17 +217,16 @@
                         <div class="row">
                             <address>
                                 <div class="title">Address</div>
-                                <p>3717 CedarWood Dr. Holiday FL, 349672</p>
+                                <p>{{$setting->$address}}</p>
                             </address>
                         </div>
                         <div class="row">
                             <div class="title">E-mail</div>
-                            <span>owlthemesnet@gmail.com</span>
+                            <span>{{$setting->email}}</span>
                         </div>
                         <div class="row">
                             <div class="title">Contact us</div>
-                            <span>+3 555 285 8620</span>
-                            <span>+3 358 321 6548</span>
+                            <span>{{$setting->contact}}</span>
                         </div>
                     </div>
                 </div>
@@ -358,98 +328,8 @@
         <!-- Custom -->
         <script src="js/custom/custom.js"></script>
 
-        <!-- Google maps -->
-        <script>
-            function initMap() {
-                var uluru = {
-                    lat: -33.8765,
-                    lng: 151.2094
-                };
-                var map = new google.maps.Map(document.getElementById('map'), {
-                    zoom: 12,
-                    center: uluru,
-                    scrollwheel: false,
-                    //green map
-                    styles: [{
-                        "featureType": "landscape",
-                        "stylers": [{
-                            "hue": "#FFA800"
-                        }, {
-                            "saturation": 0
-                        }, {
-                            "lightness": 0
-                        }, {
-                            "gamma": 1
-                        }]
-                    }, {
-                        "featureType": "road.highway",
-                        "stylers": [{
-                            "hue": "#53FF00"
-                        }, {
-                            "saturation": -73
-                        }, {
-                            "lightness": 40
-                        }, {
-                            "gamma": 1
-                        }]
-                    }, {
-                        "featureType": "road.arterial",
-                        "stylers": [{
-                            "hue": "#FBFF00"
-                        }, {
-                            "saturation": 0
-                        }, {
-                            "lightness": 0
-                        }, {
-                            "gamma": 1
-                        }]
-                    }, {
-                        "featureType": "road.local",
-                        "stylers": [{
-                            "hue": "#00FFFD"
-                        }, {
-                            "saturation": 0
-                        }, {
-                            "lightness": 30
-                        }, {
-                            "gamma": 1
-                        }]
-                    }, {
-                        "featureType": "water",
-                        "stylers": [{
-                            "hue": "#00BFFF"
-                        }, {
-                            "saturation": 6
-                        }, {
-                            "lightness": 8
-                        }, {
-                            "gamma": 1
-                        }]
-                    }, {
-                        "featureType": "poi",
-                        "stylers": [{
-                            "hue": "#679714"
-                        }, {
-                            "saturation": 33.4
-                        }, {
-                            "lightness": -25.4
-                        }, {
-                            "gamma": 1
-                        }]
-                    }],
-                });
-                var image = '/images/marker_green.png';
-                var marker = new google.maps.Marker({
-                    position: uluru,
-                    map: map,
-                    icon: image
-                });
-            }
-        </script>
-        <script async defer src="https://maps.googleapis.com/maps/api/js?key=&amp;callback=initMap">
-        </script>
-        <!-- Google maps end-->
 
+        @yield('scripts')
     </footer>
     <!-- Footer end-->
 </div>

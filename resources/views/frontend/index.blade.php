@@ -20,10 +20,7 @@
     </div>
     <!-- Header video background end -->
 @endsection
-@php
-    $name = "name_".app()->getLocale();
-    $position = "position_".app()->getLocale();
-@endphp
+
 @section('content')
     <!-- Main content -->
     <main>
@@ -233,163 +230,38 @@
 
                     <!-- Filter options -->
                     <ul id="filter" class="filter-options">
-                        <li class="btn" data-group="webdesign"><span>Web-design</span></li>
-                        <li class="btn" data-group="photography"><span>Photography</span></li>
-                        <li class="btn" data-group="illustrations"><span>Illustrations</span></li>
-                        <li class="btn" data-group="wordpress"><span>Wordpress</span></li>
-                        <li class="btn" data-group="ecommerce"><span>E-commerce</span></li>
+                        @foreach($work_tags as $work_tag)
+                            <li class="btn" data-group="{{$work_tag->$name}}"><span>{{$work_tag->$name}}</span></li>
+                        @endforeach
                         <li class="btn active" data-group="all"><span>All Works</span></li>
                     </ul>
                     <!-- Filter options end -->
 
                     <!-- Grid -->
                     <ul id="grid" class="grid row">
-                        <li class="col-xs-6 col-sm-3 picture-item item" data-groups='["illustrations","wordpress","webdesign","all"]'>
-                            <figure class="effect-julia">
-                                <img src="images/portfolio/1.jpg" alt="img01" />
-                                <figcaption>
-                                    <div class="parent_center">
-                                        <div class="text_block_center">
-                                            <div class="hover_title"><span class="h1">Vice velit chia</span></div>
-                                            <figure>
-                                                <div class="buttons details">
-                                                    <div class="open_more"><span><a href="images/portfolio/1.jpg"><i class="fa fa-search-plus"></i></a></span></div>
-                                                    <div class="open_more_url"><span><a href="demo2.html#" target="_blank"> <i class="fa fa-link"></i></a></span></div>
-                                                </div>
-                                            </figure>
+                        @foreach($works as $work)
+                            {{--@php--}}
+                            {{--dd($work->tags);--}}
+                            {{--@endphp--}}
+                            <li class="col-xs-6 col-sm-3 picture-item item" data-groups='["{{$work->tags->$name}}","all"]'>
+                                <figure class="effect-julia">
+                                    <img src="{{url('work/'.$work->image)}}" alt="{{$work->$title}}" />
+                                    <figcaption>
+                                        <div class="parent_center">
+                                            <div class="text_block_center">
+                                                <div class="hover_title"><span class="h1">{{$work->$title}}</span></div>
+                                                <figure>
+                                                    <div class="buttons details">
+                                                        <div class="open_more"><span><a href="{{url('work/'.$work->image)}}"><i class="fa fa-search-plus"></i></a></span></div>
+                                                        <div class="open_more_url"><span><a href="demo2.html#" target="_blank"> <i class="fa fa-link"></i></a></span></div>
+                                                    </div>
+                                                </figure>
+                                            </div>
                                         </div>
-                                    </div>
-                                </figcaption>
-                            </figure>
-                        </li>
-                        <li class="col-xs-6 col-sm-3 picture-item item" data-groups='["ecommerce","illustrations","wordpress","photography","all","ecommerce"]'>
-                            <figure class="effect-julia">
-                                <img src="images/portfolio/2.jpg" alt="img02" />
-                                <figcaption>
-                                    <div class="parent_center">
-                                        <div class="text_block_center">
-                                            <div class="hover_title"><span class="h1">Letterpress asymmetrical</span></div>
-                                            <figure>
-                                                <div class="buttons details">
-                                                    <div class="open_more"><span><a href="images/portfolio/2.jpg"><i class="fa fa-search-plus"></i></a></span></div>
-                                                    <div class="open_more_url"><span><a href="demo2.html#" target="_blank"> <i class="fa fa-link"></i></a></span></div>
-                                                </div>
-                                            </figure>
-                                        </div>
-                                    </div>
-                                </figcaption>
-                            </figure>
-                        </li>
-                        <li class="col-xs-6 col-sm-3 picture-item item" data-groups='["photography","all","webdesign","ecommerce"]'>
-                            <figure class="effect-julia">
-                                <img src="images/portfolio/3.jpg" alt="img03" />
-                                <figcaption>
-                                    <div class="parent_center">
-                                        <div class="text_block_center">
-                                            <div class="hover_title"><span class="h1">Brunch semiotics</span></div>
-                                            <figure>
-                                                <div class="buttons details">
-                                                    <div class="open_more"><span><a href="images/portfolio/3.jpg"><i class="fa fa-search-plus"></i></a></span></div>
-                                                    <div class="open_more_url"><span><a href="demo2.html#" target="_blank"> <i class="fa fa-link"></i></a></span></div>
-                                                </div>
-                                            </figure>
-                                        </div>
-                                    </div>
-                                </figcaption>
-                            </figure>
-                        </li>
-                        <li class="col-xs-6 col-sm-3 picture-item item" data-groups='["wordpress","webdesign","all"]'>
-                            <figure class="effect-julia">
-                                <img src="images/portfolio/4.jpg" alt="img04" />
-                                <figcaption>
-                                    <div class="parent_center">
-                                        <div class="text_block_center">
-                                            <div class="hover_title"><span class="h1">Chillwave nihil occupy</span></div>
-                                            <figure>
-                                                <div class="buttons details">
-                                                    <div class="open_more"><span><a href="images/portfolio/4.jpg"><i class="fa fa-search-plus"></i></a></span></div>
-                                                    <div class="open_more_url"><span><a href="demo2.html#" target="_blank"> <i class="fa fa-link"></i></a></span></div>
-                                                </div>
-                                            </figure>
-                                        </div>
-                                    </div>
-                                </figcaption>
-                            </figure>
-                        </li>
-
-                        <li class="col-xs-6 col-sm-3 picture-item item" data-groups='["photography","allwork","illustrations","all"]'>
-                            <figure class="effect-julia">
-                                <img src="images/portfolio/5.jpg" alt="img05" />
-                                <figcaption>
-                                    <div class="parent_center">
-                                        <div class="text_block_center">
-                                            <div class="hover_title"><span class="h1">Kale chips lomo biodiesel</span></div>
-                                            <figure>
-                                                <div class="buttons details">
-                                                    <div class="open_more"><span><a href="images/portfolio/5.jpg"><i class="fa fa-search-plus"></i></a></span></div>
-                                                    <div class="open_more_url"><span><a href="demo2.html#" target="_blank"> <i class="fa fa-link"></i></a></span></div>
-                                                </div>
-                                            </figure>
-                                        </div>
-                                    </div>
-                                </figcaption>
-                            </figure>
-                        </li>
-
-                        <li class="col-xs-6 col-sm-3 picture-item item" data-groups='["illustrations","all","webdesign","ecommerce"]'>
-                            <figure class="effect-julia">
-                                <img src="images/portfolio/6.jpg" alt="img06" />
-                                <figcaption>
-                                    <div class="parent_center">
-                                        <div class="text_block_center">
-                                            <div class="hover_title"><span class="h1">Exercitation occaecat</span></div>
-                                            <figure>
-                                                <div class="buttons details">
-                                                    <div class="open_more"><span><a href="images/portfolio/6.jpg"><i class="fa fa-search-plus"></i></a></span></div>
-                                                    <div class="open_more_url"><span><a href="demo2.html#" target="_blank"> <i class="fa fa-link"></i></a></span></div>
-                                                </div>
-                                            </figure>
-                                        </div>
-                                    </div>
-                                </figcaption>
-                            </figure>
-                        </li>
-                        <li class="col-xs-6 col-sm-3 picture-item item" data-groups='["wordpress","ecommerce","webdesign","all"]'>
-                            <figure class="effect-julia">
-                                <img src="images/portfolio/7.jpg" alt="img07" />
-                                <figcaption>
-                                    <div class="parent_center">
-                                        <div class="text_block_center">
-                                            <div class="hover_title"><span class="h1">Selfies viral four</span></div>
-                                            <figure>
-                                                <div class="buttons details">
-                                                    <div class="open_more"><span><a href="images/portfolio/7.jpg"><i class="fa fa-search-plus"></i></a></span></div>
-                                                    <div class="open_more_url"><span><a href="demo2.html#" target="_blank"> <i class="fa fa-link"></i></a></span></div>
-                                                </div>
-                                            </figure>
-                                        </div>
-                                    </div>
-                                </figcaption>
-                            </figure>
-                        </li>
-                        <li class="col-xs-6 col-sm-3 picture-item item" data-groups='["photography","ecommerce","webdesign","all"]'>
-                            <figure class="effect-julia">
-                                <img src="images/portfolio/8.jpg" alt="img08" />
-                                <figcaption>
-                                    <div class="parent_center">
-                                        <div class="text_block_center">
-                                            <div class="hover_title"><span class="h1">Photo booth skateboard</span></div>
-                                            <figure>
-                                                <div class="buttons details">
-                                                    <div class="open_more"><span><a href="images/portfolio/8.jpg"><i class="fa fa-search-plus"></i></a></span></div>
-                                                    <div class="open_more_url"><span><a href="demo2.html#" target="_blank"> <i class="fa fa-link"></i></a></span></div>
-                                                </div>
-                                            </figure>
-                                        </div>
-                                    </div>
-                                </figcaption>
-                            </figure>
-                        </li>
+                                    </figcaption>
+                                </figure>
+                            </li>
+                        @endforeach
                     </ul>
                 </section>
                 <!-- Grid end -->
@@ -397,78 +269,17 @@
                 <!-- Grid slideshow -->
                 <section class="grid-slideshow">
                     <ul>
-                        <li>
-                            <figure>
-                                <figcaption>
-                                    <h3>Letterpress asymmetrical</h3>
-                                    <p>Kale chips lomo biodiesel stumptown Godard Tumblr, mustache sriracha tattooed cray aute slow-carb placeat delectus. Letterpress asymmetrical fanny pack art party est pour-over skateboard anim quis, ullamco craft beer.</p>
-                                </figcaption>
-                                <img src="images/portfolio/1.jpg" alt="img01" />
-                            </figure>
-                        </li>
-                        <li>
-                            <figure>
-                                <figcaption>
-                                    <h3>Vice velit chia</h3>
-                                    <p>Chillwave Echo Park Etsy organic Cosby sweater seitan authentic pour-over. Occupy wolf selvage bespoke tattooed, cred sustainable Odd Future hashtag butcher.</p>
-                                </figcaption>
-                                <img src="images/portfolio/2.jpg" alt="img02" />
-                            </figure>
-                        </li>
-                        <li>
-                            <figure>
-                                <figcaption>
-                                    <h3>Brunch semiotics</h3>
-                                    <p>IPhone PBR polaroid before they sold out meh you probably haven't heard of them leggings tattooed tote bag, butcher paleo next level single-origin coffee photo booth.</p>
-                                </figcaption>
-                                <img src="images/portfolio/3.jpg" alt="img03" />
-                            </figure>
-                        </li>
-                        <li>
-                            <figure>
-                                <figcaption>
-                                    <h3>Chillwave nihil occupy</h3>
-                                    <p>Vice cliche locavore mumblecore vegan wayfarers asymmetrical letterpress hoodie mustache. Shabby chic lomo polaroid, scenester 8-bit Portland Pitchfork VHS tote bag.</p>
-                                </figcaption>
-                                <img src="images/portfolio/4.jpg" alt="img04" />
-                            </figure>
-                        </li>
-                        <li>
-                            <figure>
-                                <figcaption>
-                                    <h3>Kale chips lomo biodiesel</h3>
-                                    <p>Chambray Schlitz pug YOLO, PBR Tumblr semiotics. Flexitarian YOLO ennui Blue Bottle, forage dreamcatcher chillwave put a bird on it craft beer Etsy.</p>
-                                </figcaption>
-                                <img src="images/portfolio/5.jpg" alt="img05" />
-                            </figure>
-                        </li>
-                        <li>
-                            <figure>
-                                <figcaption>
-                                    <h3>Exercitation occaecat</h3>
-                                    <p>Cosby sweater hella lomo Thundercats VHS occupy High Life. Synth pop-up readymade single-origin coffee, fanny pack tousled retro. Fingerstache mlkshk ugh hashtag, church-key ethnic street art pug yr.</p>
-                                </figcaption>
-                                <img src="images/portfolio/6.jpg" alt="img06" />
-                            </figure>
-                        </li>
-                        <li>
-                            <figure>
-                                <figcaption>
-                                    <h3>Selfies viral four</h3>
-                                    <p>Ethnic readymade pug, small batch XOXO Odd Future normcore kogi food truck craft beer single-origin coffee banh mi photo booth raw denim. XOXO messenger bag pug VHS. Forage gluten-free polaroid, twee hoodie chillwave Helvetica.</p>
-                                </figcaption>
-                                <img src="images/portfolio/7.jpg" alt="img01" />
-                            </figure>
-                        </li>
-                        <li>
-                            <figure>
-                                <figcaption>
-                                    <h3>Photo booth skateboard</h3>
-                                    <p>Thundercats pour-over four loko skateboard Brooklyn, Etsy sriracha leggings dreamcatcher narwhal authentic 3 wolf moon synth Portland. Shabby chic photo booth Blue Bottle keffiyeh, McSweeney's roof party Carles.</p>
-                                </figcaption>
-                                <img src="images/portfolio/8.jpg" alt="img02" />
-                            </figure>
-                        </li>
+                        @foreach($works as $work)
+                            <li>
+                                <figure>
+                                    <figcaption>
+                                        <h3>{{$work->$title}}</h3>
+                                        <p>{{$work->$desc}}</p>
+                                    </figcaption>
+                                    <img src="{{url('work/'.$work->image)}}" alt="{{$work->$title}}" />
+                                </figure>
+                            </li>
+                        @endforeach
                     </ul>
                     <nav>
                         <span class="icon nav-prev"></span>
@@ -818,104 +629,34 @@
                     <h6>Latest blog posts</h6>
                 </div>
                 <div class="row grid">
-                    <!-- Latest blog block item 1 -->
-                    <div class="col-xs-6 col-sm-4 col-md-4 col-lg-4 item ">
-                        <div class="row item_vn">
-                            <figure class="effect-julia">
-                                <img src="images/lblog_1.jpg" alt="lblog_1" />
-                                <figcaption class="read_more_block">
-                                    <div class="parent_center">
-                                        <div class="text_block_center">
-                                            <span><a href="blog_detail.html" class="button_white">Read more</a></span>
+                    @foreach($posts as $post)
+                        <div class="col-xs-6 col-sm-4 col-md-4 col-lg-4 item ">
+                            <div class="row item_vn">
+                                <figure class="effect-julia">
+                                    <img src="{{url('post/'.$post->image)}}" alt="{{$post->$title}}" />
+                                    <figcaption class="read_more_block">
+                                        <div class="parent_center">
+                                            <div class="text_block_center">
+                                                <span><a href="blog_detail.html" class="button_white">Read more</a></span>
+                                            </div>
                                         </div>
+                                    </figcaption>
+                                </figure>
+                                <div class="content_latest_blog">
+                                    <div class="top">
+                                        <a href="blog_detail.html" class="name">{{$post->$title}}</a>
+                                        <span class="date">{{$post->created_at}}</span>
+                                        <span class="comment">By Admin</span>
                                     </div>
-                                </figcaption>
-                            </figure>
-                            <div class="content_latest_blog">
-                                <div class="top">
-                                    <a href="blog_detail.html" class="name">Bloomberg smart cities</a>
-                                    <span class="date">Tuesday, June 13, 2016</span>
-                                    <span class="comment"><span>53</span> comments</span>
+                                    <p>{!! substr($post->$text,0,350) !!} ...</p>
                                 </div>
-                                <p>Vitae adipiscing turpis. Aenean ligula nibh, molestie id viverra a, dapibus at dolor. In iaculis viverra neque, ac eleifend ante lobortis id. In viverra ipsum ac eros tris. Aenean ligula nibh, molestie id viverra a, dapibus at dolor. In iaculis viverra neque, ac eleifend ante lobortis id. In viverra ipsum ac</p>
                             </div>
                         </div>
-                    </div>
-                    <!-- Latest blog block item 1 end -->
-
-                    <!-- Latest blog block item 2 -->
-                    <div class="col-xs-6 col-sm-4 col-md-4 col-lg-4 item ">
-                        <div class="row item_vn">
-                            <figure class="effect-julia">
-                                <img src="images/lblog_2.jpg" alt="lblog_2" />
-                                <figcaption class="read_more_block">
-                                    <div class="parent_center">
-                                        <div class="text_block_center">
-                                            <span><a href="blog_detail.html" class="button_white">Read more</a></span>
-                                        </div>
-                                    </div>
-                                </figcaption>
-                            </figure>
-                            <div class="content_latest_blog">
-                                <div class="top">
-                                    <a href="blog_detail.html" class="name">New york conference</a>
-                                    <span class="date">Tuesday, June 23, 2016</span>
-                                    <span class="comment"><span>53</span> comments</span>
-                                </div>
-                                <p>Vitae adipiscing turpis. Aenean ligula nibh, molestie id viverra a, dapibus at dolor. In iaculis viverra neque, ac eleifend ante lobortis id. In viverra ipsum ac eros tris. Aenean ligula nibh, molestie id viverra a, dapibus at dolor. In iaculis viverra neque, ac eleifend ante lobortis id. In viverra ipsum ac</p>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- Latest blog block item 2 end -->
-
-                    <!-- Latest blog block item 3-->
-                    <div class="col-xs-6 col-sm-4 col-md-4 col-lg-4 item ">
-                        <div class="row item_vn">
-                            <figure class="effect-julia">
-                                <img src="images/lblog_3.jpg" alt="lblog_3" />
-                                <figcaption class="read_more_block">
-                                    <div class="parent_center">
-                                        <div class="text_block_center ">
-                                            <span><a href="blog_detail.html" class="button_white">Read more</a></span>
-                                        </div>
-                                    </div>
-                                </figcaption>
-                            </figure>
-                            <div class="content_latest_blog">
-                                <div class="top">
-                                    <a href="blog_detail.html" class="name">Nemo enim ipsam voluptaem</a>
-                                    <span class="date">Tuesday, June 27, 2016</span>
-                                    <span class="comment"><span>53</span> comments</span>
-                                </div>
-                                <p>Vitae adipiscing turpis. Aenean ligula nibh, molestie id viverra a, dapibus at dolor. In iaculis viverra neque, ac eleifend ante lobortis id. In viverra ipsum ac eros tris. Aenean ligula nibh, molestie id viverra a, dapibus at dolor. In iaculis viverra neque, ac eleifend ante lobortis id. In viverra ipsum ac</p>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- Latest blog block item end -->
+                    @endforeach
                 </div>
             </div>
         </section>
         <!-- Latest blog block end -->
-
-        <!-- Brand block -->
-        <div class="brand_block section_block">
-            <div class="container-fluid">
-                <div class="row">
-                    <div  class="brand owl-carousel owl-theme ">
-                        <a href="demo2.html#" class="item "><div class="block_text"><img src="images/brand1.png" alt="Brand description" /></div></a>
-                        <a href="demo2.html#" class="item "><div class="block_text"><img src="images/brand2.png" alt="Brand description" /></div></a>
-                        <a href="demo2.html#" class="item "><div class="block_text"><img src="images/brand3.png" alt="Brand description" /></div></a>
-                        <a href="demo2.html#" class="item "><div class="block_text"><img src="images/brand4.png" alt="Brand description" /></div></a>
-                        <a href="demo2.html#" class="item "><div class="block_text"><img src="images/brand5.png" alt="Brand description" /></div></a>
-                        <a href="demo2.html#" class="item "><div class="block_text"><img src="images/brand3.png" alt="Brand description" /></div></a>
-                        <a href="demo2.html#" class="item "><div class="block_text"><img src="images/brand2.png" alt="Brand description" /></div></a>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- Brand block end --
-
-
         <!-- Map block -->
         <section class="map section_block silver" id="contacts">
             <div class="container-fluid">
@@ -927,26 +668,15 @@
                         <div class="map-info">
                             <h3>Contact</h3>
                             <address>
-                                <i class="fa fa-map-marker" aria-hidden="true"></i>  North America: <br>
-                                241 Indian Spring St.<br>
-                                Pittsburg, CA 94565
-                            </address>
-
-                            <address>
-                                <i class="fa fa-street-view" aria-hidden="true"></i>  Europe: <br>
-                                7609 Helen St.<br>
-                                Wayne, NJ 07470
+                                <i class="fa fa-map-marker" aria-hidden="true"></i>  {{$setting->$address}}
                             </address>
 
                             <ul>
                                 <li>
-                                    <i class="fa fa-phone" aria-hidden="true"></i> Phone: (91) 8547 654321
+                                    <i class="fa fa-phone" aria-hidden="true"></i> Phone: {{$setting->contact}}
                                 </li>
                                 <li>
-                                    <i class="fa fa-fax" aria-hidden="true"></i> Fax: (91) 11 4444 4321
-                                </li>
-                                <li>
-                                    <i class="fa fa-envelope-o" aria-hidden="true"></i> Email: info@sitedomain.com
+                                    <i class="fa fa-envelope-o" aria-hidden="true"></i> Email: {{$setting->email}}
                                 </li>
                             </ul>
                         </div>
@@ -1037,4 +767,98 @@
 
     </main>
     <!-- Main content end -->
+@endsection
+
+@section('scripts')
+    <!-- Google maps -->
+    <script>
+        function initMap() {
+            var location = {
+                lat: {{$setting->lat}},
+                lng: {{$setting->lng}}
+            };
+            var map = new google.maps.Map(document.getElementById('map'), {
+                zoom: 12,
+                center: location,
+                scrollwheel: false,
+                //green map
+                styles: [{
+                    "featureType": "landscape",
+                    "stylers": [{
+                        "hue": "#FFA800"
+                    }, {
+                        "saturation": 0
+                    }, {
+                        "lightness": 0
+                    }, {
+                        "gamma": 1
+                    }]
+                }, {
+                    "featureType": "road.highway",
+                    "stylers": [{
+                        "hue": "#53FF00"
+                    }, {
+                        "saturation": -73
+                    }, {
+                        "lightness": 40
+                    }, {
+                        "gamma": 1
+                    }]
+                }, {
+                    "featureType": "road.arterial",
+                    "stylers": [{
+                        "hue": "#FBFF00"
+                    }, {
+                        "saturation": 0
+                    }, {
+                        "lightness": 0
+                    }, {
+                        "gamma": 1
+                    }]
+                }, {
+                    "featureType": "road.local",
+                    "stylers": [{
+                        "hue": "#00FFFD"
+                    }, {
+                        "saturation": 0
+                    }, {
+                        "lightness": 30
+                    }, {
+                        "gamma": 1
+                    }]
+                }, {
+                    "featureType": "water",
+                    "stylers": [{
+                        "hue": "#00BFFF"
+                    }, {
+                        "saturation": 6
+                    }, {
+                        "lightness": 8
+                    }, {
+                        "gamma": 1
+                    }]
+                }, {
+                    "featureType": "poi",
+                    "stylers": [{
+                        "hue": "#679714"
+                    }, {
+                        "saturation": 33.4
+                    }, {
+                        "lightness": -25.4
+                    }, {
+                        "gamma": 1
+                    }]
+                }],
+            });
+            var image = '/images/marker.png';
+            var marker = new google.maps.Marker({
+                position: location,
+                map: map,
+                icon: image
+            });
+        }
+    </script>
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=&amp;callback=initMap">
+    </script>
+    <!-- Google maps end-->
 @endsection

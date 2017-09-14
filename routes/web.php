@@ -12,7 +12,7 @@
 */
 
 Route::get('/', 'Frontend\PageController@index');
-Route::get('set/locale/{locale}','Backend\PageController@set_locale')->name('set_locale');
+Route::get('set/locale/{locale}','HomeController@set_locale')->name('set_locale');
 // ------------ Admin Routes -------------------------------
 Route::group(['middleware' => 'auth','prefix' => 'admin'],function (){
     Route::get('/dashboard','Backend\PageController@index')->name('dashboard');
@@ -24,6 +24,7 @@ Route::group(['middleware' => 'auth','prefix' => 'admin'],function (){
     Route::resource('category', 'Backend\CategoryController');
     Route::resource('tag', 'Backend\TagController');
     Route::resource('work', 'Backend\WorkController');
+    Route::resource('work-tag', 'Backend\WorkTagController');
     Route::resource('feature', 'Backend\FeatureController');
     Route::resource('social', 'Backend\SocialController');
     Route::resource('statistic', 'Backend\StatisticController');
