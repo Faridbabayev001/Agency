@@ -30,14 +30,14 @@
                                             <div class="card alt-card">
                                                 <div class="card-body">
                                                     <ul class="nav nav-pills nav-stacked" role="tablist">
-                                                        <li role="presentation" {{Request::is('admin/post') ? "class=active" : ''}}><a href="#sidenav1" aria-controls="sidenav1" role="tab" data-toggle="tab">Add Post</a></li>
+                                                        <li role="presentation" {{Request::is('admin/post/create') ? "class=active" : ''}}><a href="#sidenav1" aria-controls="sidenav1" role="tab" data-toggle="tab">Add Post</a></li>
                                                         <li role="presentation" {{Request::is('admin/tag') ? "class=active" : ''}}><a href="#sidenav2" aria-controls="sidenav2" role="tab" data-toggle="tab">Add Tag</a></li>
-                                                        <li role="presentation" {{Request::is('admin/category') ? "class=active" : ''}}><a href="#sidenav3" aria-controls="sidenav3" role="tab" data-toggle="tab">Add Category</a></li>
-                                                        <li role="presentation" {{Request::is('admin/team') ? "class=active" : ''}}><a href="#sidenav4" aria-controls="sidenav4" role="tab" data-toggle="tab">Add Team</a></li>
+                                                        <li role="presentation" {{Request::is('admin/category/create') ? "class=active" : ''}}><a href="#sidenav3" aria-controls="sidenav3" role="tab" data-toggle="tab">Add Category</a></li>
+                                                        <li role="presentation" {{Request::is('admin/team/create') ? "class=active" : ''}}><a href="#sidenav4" aria-controls="sidenav4" role="tab" data-toggle="tab">Add Team</a></li>
                                                         <li role="presentation" {{Request::is('admin/social') ? "class=active" : ''}}><a href="#sidenav5" aria-controls="sidenav5" role="tab" data-toggle="tab">Add Social</a></li>
                                                         <li role="presentation" {{Request::is('admin/question') ? "class=active" : ''}}><a href="#sidenav6" aria-controls="sidenav6" role="tab" data-toggle="tab">Add Question</a></li>
                                                         <li role="presentation" {{Request::is('admin/work-tag') ? "class=active" : ''}}><a href="#sidenav7" aria-controls="sidenav7" role="tab" data-toggle="tab">Add Work Tag</a></li>
-                                                        <li role="presentation" {{Request::is('admin/work') ? "class=active" : ''}}><a href="#sidenav8" aria-controls="sidenav8" role="tab" data-toggle="tab">Add Work</a></li>
+                                                        <li role="presentation" {{Request::is('admin/work/create') ? "class=active" : ''}}><a href="#sidenav8" aria-controls="sidenav8" role="tab" data-toggle="tab">Add Work</a></li>
                                                         <li role="presentation"><a href="#sidenav9" aria-controls="sidenav9" role="tab" data-toggle="tab">Sidenav item 9</a></li>
                                                         <li role="presentation"><a href="#sidenav10" aria-controls="sidenav10" role="tab" data-toggle="tab">Sidenav item 10</a></li>
                                                     </ul>
@@ -50,7 +50,7 @@
                                     <div class="col-xs-12" role="main">
                                         <!-- Tab panes -->
                                         <div class="tab-content">
-                                            <section role="tabpanel" class="tab-pane {{Request::is('admin/post') ? "active" : ''}}" id="sidenav1">
+                                            <section role="tabpanel" class="tab-pane {{Request::is('admin/post/create') ? "active" : ''}}" id="sidenav1">
                                                 <div class="card">
                                                     <header class="card-heading">
                                                         <h2 class="card-title">Add Post</h2>
@@ -177,7 +177,7 @@
                                                     </div>
                                                 </div>
                                             </section>
-                                            <section role="tabpanel" class="tab-pane {{Request::is('admin/category') ? "active" : ''}}" id="sidenav3">
+                                            <section role="tabpanel" class="tab-pane {{Request::is('admin/category/create') ? "active" : ''}}" id="sidenav3">
                                                 <div class="card">
                                                     <header class="card-heading">
                                                         <h2 class="card-title">Add Category</h2>
@@ -206,7 +206,7 @@
                                                     </div>
                                                 </div>
                                             </section>
-                                            <section role="tabpanel" class="tab-pane" id="sidenav4">
+                                            <section role="tabpanel" class="tab-pane {{Request::is('admin/team/create') ? "active" : ''}}" id="sidenav4">
                                                 <div class="card">
                                                     <header class="card-heading">
                                                         <h2 class="card-title">Add Team</h2>
@@ -377,7 +377,7 @@
                                                     </div>
                                                 </div>
                                             </section>
-                                            <section role="tabpanel" class="tab-pane {{Request::is('admin/work') ? "active" : ''}}" id="sidenav8" >
+                                            <section role="tabpanel" class="tab-pane {{Request::is('admin/work/create') ? "active" : ''}}" id="sidenav8" >
                                                 <div class="card">
                                                     <header class="card-heading">
                                                         <h2 class="card-title">Add Work</h2>

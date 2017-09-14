@@ -23,15 +23,15 @@
             </div>
             <div class="tabpanel tab-header">
                 <ul class="nav nav-tabs p-l-20">
-                    <li class="active" role="presentation"><a href="#posts" data-toggle="tab">Posts</a></li>
-                    <li role="presentation"><a href="#teams" data-toggle="tab">Teams</a></li>
-                    <li role="presentation"><a href="#works" data-toggle="tab">Works</a></li>
+                    <li {{(Request::is('admin/post') || Request::is('admin/dashboard')) ? "class=active" : ''}} role="presentation"><a href="#posts" data-toggle="tab">Posts</a></li>
+                    <li {{Request::is('admin/team') ? "class=active" : ''}}  role="presentation"><a href="#teams" data-toggle="tab">Teams</a></li>
+                    <li {{Request::is('admin/work') ? "class=active" : ''}} role="presentation"><a href="#works" data-toggle="tab">Works</a></li>
                 </ul>
             </div>
             <div id="content" class="container-fluid">
                 <div class="content-body">
                     <div id="dashboard_content" class="tab-content">
-                        <div class="tab-pane fade active in" id="posts">
+                        <div class="tab-pane fade {{(Request::is('admin/post') || Request::is('admin/dashboard')) ? "active in" : ''}}" id="posts">
                             <div class="row">
                                 <table class="table table-responsive">
                                     <thead>
@@ -62,7 +62,7 @@
                                                     </div>
                                                 </td>
                                                 <td>
-                                                    <a href="javascript:void(0)" class="btn btn-info btn-fab animate-fab btn-fab-sm" ><i class="zmdi zmdi-edit"></i></a>
+                                                    <a href="{{route('post.edit',['post' => $post->id])}}" class="btn btn-info btn-fab animate-fab btn-fab-sm" ><i class="zmdi zmdi-edit"></i></a>
                                                     <a href="javascript:void(0)" class="btn btn-success btn-fab animate-fab btn-fab-sm" data-toggle="modal" data-target="#{{$post->id}}"><i class="zmdi zmdi-eye"></i></a>
                                                     <a href="javascript:void(0)" class="btn btn-danger btn-fab animate-fab btn-fab-sm sweet-warning"><i class="zmdi zmdi-delete"></i><div class="ripple-container"></div></a>
 
@@ -101,7 +101,7 @@
                                 </table>
                             </div>
                         </div>
-                        <div class="tab-pane fade" id="teams">
+                        <div class="tab-pane fade {{Request::is('admin/team') ? "active in" : ''}}" id="teams">
                             <div class="row">
                                 <table class="table table-responsive">
                                     <thead>
@@ -126,7 +126,7 @@
                                                 <td>{{$team->position_en}}</td>
                                                 <td>{{$team->position_az}}</td>
                                                 <td>
-                                                    <a href="javascript:void(0)" class="btn btn-info btn-fab animate-fab btn-fab-sm" ><i class="zmdi zmdi-edit"></i></a>
+                                                    <a href="{{route('team.edit',['team' => $team->id])}}" class="btn btn-info btn-fab animate-fab btn-fab-sm" ><i class="zmdi zmdi-edit"></i></a>
                                                     <a href="javascript:void(0)" class="btn btn-danger btn-fab animate-fab btn-fab-sm sweet-warning"><i class="zmdi zmdi-delete"></i><div class="ripple-container"></div></a>
                                                 </td>
                                             </tr>
@@ -136,7 +136,7 @@
                                 </table>
                             </div>
                         </div>
-                        <div class="tab-pane fade" id="works">
+                        <div class="tab-pane fade {{Request::is('admin/work') ? "active in" : ''}}" id="works">
                             <div class="row">
                                 <table class="table table-responsive">
                                     <thead>

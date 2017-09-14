@@ -15,7 +15,7 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        return app('App\Http\Controllers\Backend\PageController')->add_data();
+        return app('App\Http\Controllers\Backend\PageController')->index();
     }
 
     /**
@@ -25,7 +25,7 @@ class CategoryController extends Controller
      */
     public function create()
     {
-        //
+        return app('App\Http\Controllers\Backend\PageController')->add_data();
     }
 
     /**

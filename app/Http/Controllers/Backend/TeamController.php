@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Backend;
 
 use App\Http\Requests\TeamRequest;
+use App\Http\Requests\TeamUpdateRequest;
 use App\Team;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -16,7 +17,7 @@ class TeamController extends Controller
      */
     public function index()
     {
-        //
+        return app('App\Http\Controllers\Backend\PageController')->index();
     }
 
     /**
@@ -26,7 +27,7 @@ class TeamController extends Controller
      */
     public function create()
     {
-        //
+        return app('App\Http\Controllers\Backend\PageController')->add_data();
     }
 
     /**
@@ -69,7 +70,8 @@ class TeamController extends Controller
      */
     public function edit($id)
     {
-        //
+        $team = Team::findOrFail($id);
+        return view('backend.team.edit_team',compact('team'));
     }
 
     /**
@@ -79,9 +81,25 @@ class TeamController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(TeamUpdateRequest $request, $id)
     {
-        //
+        $slug = str_slug($request->name_en);
+        $team = Team::findOrFail($id);
+        $image_name = $team->avatar;
+        if ($request->hasFile('image'))
+        {
+            unlink('team/'.$team->avatar);
+            $image_name =  rand(1,99999).'-'.$slug.'.'.$request->file('avatar')->getClientOriginalExtension();
+            $request->file('avatar')->move(public_path('team'),$image_name);
+        }
+        $team->avatar = $image_name;
+        $team->name_en = $request->name_en;
+        $team->name_az = $request->name_az;
+        $team->position_en = $request->position_en;
+        $team->position_az = $request->position_az;
+        $team->update();
+        $request->session()->flash('update_team','Team edited');
+        return back();
     }
 
     /**

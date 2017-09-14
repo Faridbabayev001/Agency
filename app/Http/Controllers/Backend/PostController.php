@@ -2,9 +2,12 @@
 
 namespace App\Http\Controllers\Backend;
 
+use App\Category;
 use App\Http\Requests\PostRequest;
+use App\Http\Requests\PostUpdateRequest;
 use App\Post;
 use App\PostTag;
+use App\Tag;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
@@ -17,7 +20,7 @@ class PostController extends Controller
      */
     public function index()
     {
-       return app('App\Http\Controllers\Backend\PageController')->add_data();
+        return app('App\Http\Controllers\Backend\PageController')->index();
     }
 
     /**
@@ -27,7 +30,7 @@ class PostController extends Controller
      */
     public function create()
     {
-        //
+        return app('App\Http\Controllers\Backend\PageController')->add_data();
     }
 
     /**
@@ -67,7 +70,7 @@ class PostController extends Controller
      */
     public function show($id)
     {
-        //
+
     }
 
     /**
@@ -78,7 +81,10 @@ class PostController extends Controller
      */
     public function edit($id)
     {
-        //
+        $post = Post::findOrFail($id);
+        $tags = Tag::all();
+        $categories = Category::all();
+        return view('backend.post.edit_post',compact('post','tags','categories'));
     }
 
     /**
@@ -88,9 +94,31 @@ class PostController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(PostUpdateRequest $request, $id)
     {
-        //
+        $slug = str_slug($request->title_en);
+        $post = Post::findOrFail($id);
+        $image_name = $post->image;
+        if ($request->hasFile('image'))
+        {
+            unlink('post/'.$post->image);
+            $image_name =  rand(1,99999).'-'.$slug.'.'.$request->file('image')->getClientOriginalExtension();
+            $request->file('image')->move(public_path('post'),$image_name);
+        }
+        foreach ($post->tags as $tag) { $tag->delete(); }
+        $post->image = $image_name;
+        $post->slug = $slug;
+        $post->title_en = $request->title_en;
+        $post->category_id = $request->category_id;
+        $post->title_az = $request->title_az;
+        $post->text_en = $request->text_en;
+        $post->text_az = $request->text_az;
+        $post->status = $request->status;
+        $post->meta_keyword = $request->meta_keyword;
+        $post->update();
+        foreach ($request->tags as $tag) { PostTag::create(['post_id' => $post->id,'tag_id' => $tag]); }
+        $request->session()->flash('update_post','Post edited');
+        return back();
     }
 
     /**

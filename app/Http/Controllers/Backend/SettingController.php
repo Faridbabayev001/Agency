@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers\Backend;
 
+use App\Http\Requests\SettingRequest;
+use App\Setting;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
@@ -14,7 +16,8 @@ class SettingController extends Controller
      */
     public function index()
     {
-        //
+        $setting = Setting::findOrFail('1');
+        return view('backend.setting',compact('setting'));
     }
 
     /**
@@ -67,9 +70,11 @@ class SettingController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(SettingRequest $request, $id)
     {
-        //
+        Setting::findOrFail($id)->update($request->all());
+        $request->session()->flash('update_setting','Edited Settings');
+        return back();
     }
 
     /**

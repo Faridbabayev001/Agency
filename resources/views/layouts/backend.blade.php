@@ -202,42 +202,49 @@
             <div class="sidebar-inner sidebar-push">
                 <ul class="nav nav-pills nav-stacked">
                     <li class="sidebar-header">NAVIGATION</li>
-                    <li class="active"><a href="index.html"><i class="zmdi zmdi-view-dashboard"></i>Dashboard</a></li>
+                    <li class="active"><a href="{{route('dashboard')}}"><i class="zmdi zmdi-home"></i>Dashboard</a></li>
                     <li class="nav-dropdown">
-                        <a href="#"><span></span><i class="zmdi zmdi-view-quilt"></i>Blog</a>
+                        <a href="#"><span></span><i class="zmdi zmdi-tab"></i>Blog</a>
                         <ul class="nav-sub" data-index="0" style="">
                             <li class="nav-dropdown">
                                 <a href="#"><span></span>Post </a>
                                 <ul class="nav-sub" data-index="1" style="display: none;">
-                                    <li><a href="layout-fullwidth-v1.html">Posts</a></li>
-                                    <li><a href="{{route('post.index')}}">Add Post</a></li>
+                                    <li><a href="{{route('post.index')}}">Posts</a></li>
+                                    <li><a href="{{route('post.create')}}">Add Post</a></li>
                                 </ul>
                             </li>
                             <li class="nav-dropdown">
                                 <a href="#"><span></span>Category</a>
                                 <ul class="nav-sub" data-index="2" style="display: none;">
-                                    <li><a href="layout-boxed-v1.html">Categoires</a></li>
-                                    <li><a href="{{route('category.index')}}">Add category</a></li>
+                                    <li><a href="{{route('category.index')}}">Categoires</a></li>
+                                    <li><a href="{{route('category.create')}}">Add category</a></li>
                                 </ul>
                             </li>
                             <li class="nav-dropdown">
                                 <a href="#"><span></span>Tag</a>
                                 <ul class="nav-sub" data-index="3" style="display: none;">
                                     <li><a href="layout-left-sidenav-v1.html">Tags</a></li>
-                                    <li><a href="{{route('tag.index')}}">Add Tags</a></li>
-
-                                </ul>
-                            </li>
-                            <li class="nav-dropdown">
-                                <a href="#"><span></span>Right Side Nav</a>
-                                <ul class="nav-sub" data-index="4" style="display: none;">
-                                    <li><a href="layout-right-sidenav-v1.html">Right Side Nav v1</a></li>
-                                    <li><a href="layout-right-sidenav-v2.html">Right Side Nav v2</a></li>
+                                    <li><a href="{{route('tag.create')}}">Add Tags</a></li>
 
                                 </ul>
                             </li>
                         </ul>
                     </li>
+                    <li class="nav-dropdown">
+                        <a href="#"><span></span><i class="zmdi zmdi-accounts"></i>Team</a>
+                        <ul class="nav-sub" data-index="0" style="">
+                            <li><a href="{{route('team.index')}}">Teams</a></li>
+                            <li><a href="{{route('team.create')}}">Add Team</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-dropdown">
+                        <a href="#"><span></span><i class="zmdi zmdi-code"></i>Work</a>
+                        <ul class="nav-sub" data-index="0" style="">
+                            <li><a href="{{route('work.index')}}">Works</a></li>
+                            <li><a href="{{route('work.create')}}">Add Work</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="{{route('setting.index')}}"><i class="zmdi zmdi-settings"></i>Settings</a></li>
                 </ul>
             </div>
         </nav>
