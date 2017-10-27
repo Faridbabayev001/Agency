@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Frontend;
 
 use App\Post;
+use App\Question;
 use App\Setting;
 use App\Team;
 use App\Work;
@@ -18,6 +19,7 @@ class PageController extends Controller
         $work_tags = WorkTag::all();
         $works = Work::all();
         $posts = Post::orderBy('created_at','desc')->limit(3)->get();
-        return view('frontend.index',compact('teams','work_tags','works','posts'));
+        $faqs = Question::all();
+        return view('frontend.index',compact('teams','work_tags','works','posts','faqs'));
     }
 }

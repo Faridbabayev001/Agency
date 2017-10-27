@@ -26,6 +26,7 @@
                     <li {{(Request::is('admin/post') || Request::is('admin/dashboard')) ? "class=active" : ''}} role="presentation"><a href="#posts" data-toggle="tab">Posts</a></li>
                     <li {{Request::is('admin/team') ? "class=active" : ''}}  role="presentation"><a href="#teams" data-toggle="tab">Teams</a></li>
                     <li {{Request::is('admin/work') ? "class=active" : ''}} role="presentation"><a href="#works" data-toggle="tab">Works</a></li>
+                    <li {{Request::is('admin/question') ? "class=active" : ''}} role="presentation"><a href="#questions" data-toggle="tab">Questions</a></li>
                 </ul>
             </div>
             <div id="content" class="container-fluid">
@@ -162,6 +163,37 @@
                                                 <td>{{$work->desc_az}}</td>
                                                 <td>
                                                     <a href="javascript:void(0)" class="btn btn-info btn-fab animate-fab btn-fab-sm" ><i class="zmdi zmdi-edit"></i></a>
+                                                    <a href="javascript:void(0)" class="btn btn-danger btn-fab animate-fab btn-fab-sm sweet-warning"><i class="zmdi zmdi-delete"></i><div class="ripple-container"></div></a>
+                                                </td>
+                                            </tr>
+                                        @endforeach
+                                    @endforeach
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                        <div class="tab-pane fade {{Request::is('admin/question') ? "active in" : ''}}" id="questions">
+                            <div class="row">
+                                <table class="table table-responsive">
+                                    <thead>
+                                    <tr>
+                                        <th style="width: 200px;">Question En</th>
+                                        <th style="width: 200px;">Question AZ</th>
+                                        <th style="width: 200px;">Answer EN</th>
+                                        <th style="width: 200px;">Answer AZ</th>
+                                        <th>Actions</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody class="table-hover">
+                                    @foreach(array_chunk($faqs->getCollection()->all(),4) as $row)
+                                        @foreach($row as $faq)
+                                            <tr>
+                                                <td>{{$faq->question_en}}</td>
+                                                <td>{{$faq->question_az}}</td>
+                                                <td>{{$faq->answer_en}}</td>
+                                                <td>{{$faq->answer_az}}</td>
+                                                <td>
+                                                    <a href="{{route('team.edit',['team' => $faq->id])}}" class="btn btn-info btn-fab animate-fab btn-fab-sm" ><i class="zmdi zmdi-edit"></i></a>
                                                     <a href="javascript:void(0)" class="btn btn-danger btn-fab animate-fab btn-fab-sm sweet-warning"><i class="zmdi zmdi-delete"></i><div class="ripple-container"></div></a>
                                                 </td>
                                             </tr>

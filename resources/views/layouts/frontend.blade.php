@@ -1,6 +1,4 @@
-@php
 
-@endphp
 <!DOCTYPE html>
 <html lang="en" class="no-js">
 
@@ -49,7 +47,7 @@
             <div class="row header">
                 <!-- Logo -->
                 <div class="col-xs-12 col-sm-12 col-md-3 col-lg-2 logo">
-                    <a href="index.html">
+                    <a href="{{url('/')}}">
                         <img class="logo-display" src="images/logo_green.png" alt="Digrand"/>
                         <img class="logo-scrolled" src="images/logo_green_black.png" alt="Digrand"/>
                     </a>
@@ -63,11 +61,7 @@
                         <div class="menu-button"><i class="fa fa-bars"></i> Navigation</div>
                         <ul class="flexnav" data-breakpoint="991">
                             <li>
-                                <a href="demo2.html#">@lang('header.home')</a>
-                                <ul>
-                                    <li><a href="demo1.html">Home Slider (Blue color)</a></li>
-                                    <li><a href="demo2.html">Home Video (Green color)</a></li>
-                                </ul>
+                                <a href="#">@lang('header.home')</a>
                             </li>
                             <li><a href="#about_us">@lang('header.about_us')</a></li>
                             <li><a href="#portfolio">@lang('header.portfolio')</a></li>
@@ -93,13 +87,12 @@
                         <div class="container_left_menu">
                             <span class="close-button"><i class="fa fa-times"></i></span>
                             <div class="row footer_menu">
-                                <div class="title">Our menu</div>
+                                <div class="title">@lang('header.menu')</div>
                                 <div id="dl-menu" class="dl-menuwrapper">
                                     <ul class="dl-menu dl-menuopen">
-                                        <li><a href="#about_us" class="scrolurl">About Us</a></li>
-                                        <li><a href="#portfolio" class="scrolurl">Our works</a></li>
-                                        <li><a href="#price" class="scrolurl">Price & Plans</a></li>
-                                        <li><a href="#services" class="scrolurl">Features</a></li>
+                                        <li><a href="#about_us" class="scrolurl">@lang('header.about_us')</a></li>
+                                        <li><a href="#portfolio" class="scrolurl">@lang('header.portfolio')</a></li>
+                                        <li><a href="#services" class="scrolurl">@lang('header.features')</a></li>
                                         <li>
                                             <a href="">Language</a>
                                             <ul class="dl-submenu">
@@ -108,9 +101,9 @@
                                             </ul>
                                         </li>
                                         <li>
-                                            <a href="#">Blog</a>
+                                            <a href="#">@lang('header.blog')</a>
                                         </li>
-                                        <li><a href="#contacts" class="scrolurl">Contact</a></li>
+                                        <li><a href="#contacts" class="scrolurl">@lang('header.contact')</a></li>
                                     </ul>
                                 </div>
                             </div>
@@ -119,17 +112,9 @@
                             </div>
                             <div class="row footer_item_social">
                                 <ul>
-                                    <li><a href="demo2.html#"><i class="fa fa-twitter fa-lg"></i></a></li>
-                                    <li><a href="demo2.html#"><i class="fa fa-behance fa-lg"></i></a></li>
-                                    <li><a href="demo2.html#"><i class="fa fa-linkedin fa-lg"></i></a></li>
-                                    <li><a href="demo2.html#"><i class="fa fa-facebook fa-lg"></i></a></li>
-                                </ul>
-                            </div>
-                            <div class="row menu_contact">
-                                <ul>
-                                    <li><address>3717 CedarWood Dr. Holiday FL, 349672</address></li>
-                                    <li>Phone: +3 555 285 8620</li>
-                                    <li>owlthemesnet@gmail.com</li>
+                                    <li><a href="{{$setting->facebook_link}}" target="_blank"><i class="fa fa-facebook fa-lg"></i></a></li>
+                                    <li><a href="{{$setting->twitter_link}}" target="_blank"><i class="fa fa-twitter fa-lg"></i></a></li>
+                                    <li><a href="{{$setting->linkedin_link}}" target="_blank"><i class="fa fa-linkedin fa-lg"></i></a></li>
                                 </ul>
                             </div>
                         </div>

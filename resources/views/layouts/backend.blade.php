@@ -244,6 +244,36 @@
                             <li><a href="{{route('work.create')}}">Add Work</a></li>
                         </ul>
                     </li>
+                    <li class="nav-dropdown">
+                        <a href="#"><span></span><i class="zmdi zmdi-help"></i>Question</a>
+                        <ul class="nav-sub" data-index="0" style="">
+                            <li><a href="{{route('question.index')}}">Questions</a></li>
+                            <li><a href="{{route('question.create')}}">Add Question</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-dropdown">
+                        <a href="#"><span></span><i class="zmdi zmdi-format-color-text"></i>Language</a>
+                        <ul class="nav-sub" data-index="0" style="">
+                            <li class="nav-dropdown">
+                                <a href="#"><span></span><i class="zmdi zmdi-folder-outline"></i> EN </a>
+                                <ul class="nav-sub" data-index="1" style="display: none;">
+                                    <li><a href="{{route('get_language',['folder' => 'az','file' => 'header'])}}"><i class="zmdi zmdi-file"></i> Header</a></li>
+                                    <li><a href="{{route('get_language',['folder' => 'en','file' => 'about'])}}"><i class="zmdi zmdi-file"></i> About</a></li>
+                                    <li><a href="{{route('get_language',['folder' => 'en','file' => 'work_question'])}}"><i class="zmdi zmdi-file"></i> Work&Question</a></li>
+                                    <li><a href="{{route('get_language',['folder' => 'en','file' => 'content'])}}"><i class="zmdi zmdi-file"></i> Content</a></li>
+                                </ul>
+                            </li>
+                            <li class="nav-dropdown">
+                                <a href="#"><span></span><i class="zmdi zmdi-folder-outline"></i> AZ</a>
+                                <ul class="nav-sub" data-index="2" style="display: none;">
+                                    <li><a href="{{route('get_language',['folder' => 'az','file' => 'header'])}}"><i class="zmdi zmdi-file"></i> Header</a></li>
+                                    <li><a href="{{route('get_language',['folder' => 'az','file' => 'about'])}}"><i class="zmdi zmdi-file"></i> About</a></li>
+                                    <li><a href="{{route('get_language',['folder' => 'az','file' => 'work_question'])}}"><i class="zmdi zmdi-file"></i> Work&Question</a></li>
+                                    <li><a href="{{route('get_language',['folder' => 'az','file' => 'content'])}}"><i class="zmdi zmdi-file"></i> Content</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
                     <li><a href="{{route('setting.index')}}"><i class="zmdi zmdi-settings"></i>Settings</a></li>
                 </ul>
             </div>

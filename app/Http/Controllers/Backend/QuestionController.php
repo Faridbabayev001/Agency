@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers\Backend;
 
+use App\Http\Requests\QuestionRequest;
+use App\Question;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
@@ -14,7 +16,7 @@ class QuestionController extends Controller
      */
     public function index()
     {
-        //
+        return app('App\Http\Controllers\Backend\PageController')->index();
     }
 
     /**
@@ -24,7 +26,7 @@ class QuestionController extends Controller
      */
     public function create()
     {
-        //
+        return app('App\Http\Controllers\Backend\PageController')->add_data();
     }
 
     /**
@@ -33,9 +35,11 @@ class QuestionController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(QuestionRequest $request)
     {
-        //
+        Question::create($request->all());
+        $request->session()->flash('add_question','Question added');
+        return back();
     }
 
     /**

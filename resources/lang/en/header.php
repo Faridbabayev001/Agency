@@ -7,7 +7,8 @@ return [
     'features' => 'features',
     'blog' => 'blog',
     'language' => 'language',
-    'contact' => 'contact',
     'azerbaijan' => 'AZERBAIJAN',
     'english' => 'ENGLISH',
+    'contact' => 'contact',
+    'menu' => "Menu",
 ];

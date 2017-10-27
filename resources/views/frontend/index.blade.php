@@ -1,18 +1,29 @@
 @extends('layouts.frontend')
 
+@php
+    $name = "name_".app()->getLocale();
+              $title = "title_".app()->getLocale();
+              $desc = "desc_".app()->getLocale();
+              $text = "text_".app()->getLocale();
+              $address = "address_".app()->getLocale();
+              $position = "position_".app()->getLocale();
+              $upperCaseLocale = strtoupper(app()->getLocale());
+              $question = "question_".app()->getLocale();
+              $answer = "answer_".app()->getLocale();
+@endphp
 @section('video_background')
     <!-- Header video background -->
     <div class="video_background">
         <!-- Add your video background link data-jarallax-video='https://youtu.be/OouCQtvnvuw' -->
-        <div class='jarallax' data-jarallax-video='https://youtu.be/OouCQtvnvuw' style="background-image: url('images/slide1.jpg');">
+        <div class='jarallax' data-jarallax-video='https://youtu.be/sY3jH4nc5TE' style="background-image: url('images/slide1.jpg');">
             <div class="info_block auto_heading background">
                 <div class="parent">
                     <div class="text_block">
                         <div class="slide_about_us_icon">
                             <div class="icon"><i class="fa fa-html5"></i></div>
                         </div>
-                        <span>Welcome to <br/> Digrand template</span>
-                        <a href="demo2.html#about_us">About</a>
+                        <span>@lang('about.banner_text')</span>
+                        <a href="#about_us">@lang('about.about')</a>
                     </div>
                 </div>
             </div>
@@ -28,7 +39,7 @@
         <section class="container about_us section_block " id="about_us">
             <div class="row">
                 <div class="row title">
-                    <h6>About Us</h6>
+                    <h6>@lang('about.about')</h6>
                 </div>
                 <div class="row about_us_item" id="about_us_item">
                     <div class="col-xs-12 col-sm-7 col-md-7 col-lg-7">
@@ -37,8 +48,8 @@
                     <div class="col-xs-12 col-sm-5 col-md-5 col-lg-5 ">
                         <div class="about_us_title">
                             <div class="about_us_titlevn">
-                                <h3>Creative web-design</h3>
-                                <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.</p>
+                                <h3>@lang('about.section_one_title')</h3>
+                                <p>@lang('about.section_one_text')</p>
                             </div>
                         </div>
                     </div>
@@ -47,9 +58,9 @@
                     <div class="col-xs-12 col-sm-5 col-md-5 col-lg-5">
                         <div class="about_us_title">
                             <div class="about_us_titlevn">
-                                <h3><span>Front-end development</span></h3>
+                                <h3><span>@lang('about.section_two_title')</span></h3>
                                 <div class="clear"></div>
-                                <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. </p>
+                                <p>@lang('about.section_two_text')</p>
                             </div>
                         </div>
                     </div>
@@ -64,8 +75,8 @@
                     <div class="col-xs-12 col-sm-5 col-md-5 col-lg-5">
                         <div class="about_us_title">
                             <div class="about_us_titlevn">
-                                <h3>Search optimization</h3>
-                                <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. </p>
+                                <h3>@lang('about.section_three_title')</h3>
+                                <p>@lang('about.section_three_text')</p>
                             </div>
                         </div>
                     </div>
@@ -74,158 +85,15 @@
         </section>
         <!-- About us block end -->
 
-        <!-- Why our template block -->
-        <section class="row why_our_template section_block silver">
-            <div class="container">
-                <div class="row title">
-                    <h6>Why our template?</h6>
-                </div>
-                <div class="row">
-                    <div class="col-xs-12 col-sm-7 col-md-7 col-lg-7 why_our_template_left">
-                        <div class="left">
-                            <div class="h2">Mobile-Friendly Responsive</div>
-                            <div class="h3">Our template will be work on all platforms</div>
-                            <div class="left_content">
-                                Every day the number of users who come to the internet using different mobile devices, tablets and other devices, increases with great speed. Therefor it is very important for your site to be well displayed on such divices. Compared to common, your website
-                                will look perfectly on phones, tablets and PC. This will make it special and attractive in the eyes of the user.
-                            </div>
-                            <div class="popup">
-                                <a href="demo2.html#popup" data-effect="mfp-zoom-in" class="button">read more</a>
-                                <!-- Popup window why our template -->
-                                <div class="row">
-                                    <div id="popup" class="white-popup mfp-with-anim mfp-hide">
-                                        <div class="row popup_content">
-                                            <div class="h2">Responsive mobile friendly</div>
-                                            <div class="h3">Our template will be work on all platforms</div>
-                                            <div>
-                                                Every day the number of users who come to the internet using different mobile devices, tablets and other devices, increases with great speed. Therefor it is very important for your site to be well displayed on such divices. Compared to common, your website
-                                                will look perfectly on phones, <strong>tablets and PC</strong>. This will make it special and attractive in the eyes of the user. Every day the number of users who come to the internet using different mobile devices, tablets
-                                                and other devices, increases with great speed. Therefor it is very important for your site to be well displayed on such divices. Compared to common, your website will look perfectly on phones, tablets and PC.
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- Popup window why our template end -->
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-xs-12 col-sm-5 col-md-5 col-lg-5">
-                        <div class="right">
-                            <div class="row block_image">
-                                <div class="block_image_top"><img src="images/home_iphone_ani_green.png" alt="Description for image" /></div>
-                                <div class="block_image_animated row fade">
-                                    <div class="scrollreveal row"><img src="images/home_iphone.png" alt="Description for image" /></div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-        <!-- Why our template block end -->
 
-        <!-- Clean code block -->
-        <div class="row clean_code section_block">
-            <div class="container">
-                <div class="row">
-                    <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
-                        <div class="left">
-                            <div class="row block_image">
-                                <div class="block_image_top"><img src="images/clean_code_ani_green.png" alt="Description for image" /></div>
-                                <div class="block_image_animated row">
-                                    <div class="scrollreveal row"><img src="images/clean_code.png" alt="Description for image" /></div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 ">
-                        <div class="right">
-                            <div class="h2">Clean & Valid code</div>
-                            <div class="h3">Correct work in the popular browsers</div>
-                            <div>
-                                Code conforms to the W3C standards. This ensures the correct display in modern browsers such as IE10, IE11, Firefox, Safari, Opera, Chrome. All elements divided into blocks are commented. This simplifies the process of editing code, if You want to change
-                                it. We use modern technologies : HTML5, CSS, jQuery, Bootstrap.
-                            </div>
-                            <div class="popup">
-                                <a href="demo2.html#popup2" data-effect="mfp-zoom-in" class="button">read more</a>
-                                <!-- Popup window valid code -->
-                                <div class="row">
-                                    <div id="popup2" class="white-popup mfp-with-anim mfp-hide">
-                                        <div class="row popup_content popup">
-                                            <div class="h2">Clean & Valid code</div>
-                                            <div class="h3">Correct work in the popular browsers</div>
-                                            <p>
-                                                Code conforms to the W3C standards. This ensures the correct display in modern browsers such as IE10, IE11, Firefox, Safari, Opera, Chrome. All elements divided into blocks are commented. This simplifies the process of editing code, if You want to change
-                                                it. We use modern technologies : HTML5, CSS, jQuery, Bootstrap.
-                                            </p>
-                                            <p>
-                                                Code conforms to the W3C standards. This ensures the correct display in modern browsers such as IE10, IE11, Firefox, Safari, Opera, Chrome. All elements divided into blocks are commented.
-                                            <p>
-                                                Code conforms to the W3C standards. This ensures the correct display in modern browsers such as IE10, IE11, Firefox, Safari, Opera, Chrome. All elements divided into blocks are commented. This simplifies the process of editing code, if You want to change
-                                                it. We use modern technologies : HTML5, CSS, jQuery, Bootstrap.
-                                            </p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- Popup window valid code end -->
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- Clean code block end -->
 
-        <!-- Seo ready block -->
-        <div class="row seo_ready section_block silver">
-            <div class="container">
-                <div class="row">
-                    <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 left">
-                        <div class="h2">SEO Ready</div>
-                        <div class="h3">Search engines will love Your site</div>
-                        <div>
-                            There is no use to have a website that can't be found using search engines. Our Websites are developed according to good practices and recommendations from the major search engines.
-                        </div>
-                        <div class="popup">
-                            <a href="demo2.html#popup3" data-effect="mfp-zoom-in" class="button">read more</a>
-                            <!-- Popup window seo ready -->
-                            <div class="row">
-                                <div id="popup3" class="white-popup mfp-with-anim mfp-hide">
-                                    <div class="row popup_content popup">
-                                        <div class="h2">SEO Ready</div>
-                                        <div class="h3">Search engines will love Your site</div>
-                                        <p>
-                                            There is no use to have a website that can't be found using search engines. Our Websites are developed according to good practices and recommendations from the major search engines.
-                                        </p>
-                                        <p>
-                                            There is no use to have a website that can't be found using search engines. Our Websites are developed according to good practices and recommendations from the major search engines.
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- Popup window seo ready end -->
-                        </div>
-                    </div>
-                    <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 right">
-                        <div class="row block_image">
-                            <div class="block_image_top"><img src="images/seo_ready_ani_green.png" alt="Description for image" /></div>
-                            <div class="block_image_animated row fade">
-                                <div class="scrollreveal row"><img src="images/seo_ready.png" alt="Description for image" /></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="row seo_ready_fon"></div>
-        </div>
-        <!-- Seo ready block end -->
 
         <!-- Portfolio block -->
         <div class="portfolio_content section_block" id="portfolio">
             <div id="grid-gallery" class="grid-gallery cbpGridGallery">
                 <section class="grid-wrap">
                     <div class="row title">
-                        <h6>Our works</h6>
+                        <h6>@lang('work_question.works')</h6>
                     </div>
 
                     <!-- Filter options -->
@@ -233,16 +101,13 @@
                         @foreach($work_tags as $work_tag)
                             <li class="btn" data-group="{{$work_tag->$name}}"><span>{{$work_tag->$name}}</span></li>
                         @endforeach
-                        <li class="btn active" data-group="all"><span>All Works</span></li>
+                        <li class="btn active" data-group="all"><span>@lang('work_question.all_works')</span></li>
                     </ul>
                     <!-- Filter options end -->
 
                     <!-- Grid -->
                     <ul id="grid" class="grid row">
                         @foreach($works as $work)
-                            {{--@php--}}
-                            {{--dd($work->tags);--}}
-                            {{--@endphp--}}
                             <li class="col-xs-6 col-sm-3 picture-item item" data-groups='["{{$work->tags->$name}}","all"]'>
                                 <figure class="effect-julia">
                                     <img src="{{url('work/'.$work->image)}}" alt="{{$work->$title}}" />
@@ -300,30 +165,16 @@
                 </div>
                 <div class="row">
                     <div class="accordion">
-                        <div>Lorem ipsum dolor sit amet</div>
-                        <div>
-                            Phasellus lorem lectus, volutpat id, ornare euismod. Donec ullamcorper, enim metus in ligula felis, consequat sapien leo eu sem ac posuere lobortis, nibh consectetuer massa. Phasellus a wisi. Nulla nec tellus. Cum sociis natoque penatibus et cursus a, volutpat quam felis neque, fringilla ut, tincidunt rutrum vel, ipsum. Lorem ipsum dolor tincidunt sit amet nibh. Curabitur vel risus. Morbi ultrices posuere orci consequat mollis tempor venenatis blandit iaculis, dui non erat libero, fermentum gravida massa ac felis enim, id eros orci.
-                        </div>
-                        <div>Aliquam erat volutpat</div>
-                        <div>
-                            Lorem ipsum dolor sit amet purus laoreet urna. Nulla gravida non, sagittis ipsum primis in augue. Donec consectetuer adipiscing dui tincidunt et, imperdiet sed, venenatis nulla. Nunc ipsum primis in orci mauris nec magna. Nullam at urna ligula nunc, ac ante et turpis egestas. Proin consectetuer nisl. Ut lobortis sem. Aenean ipsum primis in faucibus vestibulum. Donec mauris consequat ac, eros. Mauris nec eros. Maecenas wisi. Donec elementum velit.
-                        </div>
-                        <div>Pellentesque mattis metus sed</div>
-                        <div>
-                            Suspendisse at fermentum erat. Aenean ac lacinia varius commodo est. Vivamus sem quam, lobortis elit. Nam pellentesque ligula. Aliquam malesuada tincidunt, diam lectus, eu mi. Suspendisse egestas quis, libero. Duis blandit a, dolor. Maecenas mi odio, sagittis mi. Sed faucibus, dolor eu libero. Vivamus tincidunt hendrerit wisi. Aenean augue eu lobortis.
-                        </div>
-                        <div>Fermentum gravida massa</div>
-                        <div>
-                            Suspendisse vestibulum ligula. Sed gravida tellus consectetuer adipiscing elit. Donec aliquam tempor posuere, odio. Donec quis dolor. Nulla congue. Donec pulvinar scelerisque. Nam placerat ante. Fusce fringilla elementum odio at lorem eu cursus at, ornare ornare. Etiam vehicula neque. Sed condimentum eget, scelerisque porttitor vel, semper vitae, pellentesque ut, dolor. Aenean lacus nibh, fermentum risus. Aliquam ultricies massa. Duis ante a mi. Aenean ac eros mauris, rutrum sapien. Morbi a odio leo, pretium eget, lacinia porta.
-                        </div>
-                        <div>Suspendisse rutrum ac</div>
-                        <div>
-                            Donec sit amet pede. Integer nibh pulvinar velit. Aliquam ultricies tincidunt, risus in faucibus orci vel odio et erat id lacus lacus sed urna. Nulla facilisi. Vestibulum nibh massa mattis vel, urna. Cras egestas non, nulla. Phasellus at consequat urna risus facilisis congue. Mauris ut augue. Sed id leo at porta ut, nonummy malesuada, arcu sit amet ultricies eu, rhoncus ante ligula at augue.
-                        </div>
+                        @foreach($faqs as $faq)
+                            <div>{{$faq->$question}}</div>
+                            <div>
+                                {{$faq->$answer}}
+                            </div>
+                        @endforeach
                     </div>
                 </div>
                 <div class="row center">
-                    <a href="demo2.html#contact" class="skrolurl button getPlan">Ask a Question</a>
+                    <a href="#contact" class="skrolurl button getPlan">@lang('work_question.ask_question')</a>
                 </div>
             </div>
         </section>
@@ -333,7 +184,7 @@
         <section class="jarallax counters" style="background-image: url('images/bg_love_theme.jpg');">
             <div class="container">
                 <div class="row title">
-                    <h6>Why you&#8217;ll love our theme</h6>
+                    <h6>@lang('work_question.love_our_theme')</h6>
                 </div>
                 <div class="row">
                     <div id="counters" class="row">
@@ -363,7 +214,7 @@
         <section class="ultra_services section_block" id="services">
             <div class="container ">
                 <div class="row title">
-                    <h6>Features & benefits</h6>
+                    <h6>@lang('content.features')</h6>
                 </div>
                 <div class="row ultra_services_row">
                     <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 left">
@@ -376,8 +227,8 @@
                                     </div>
                                 </div>
                                 <div class="col-sm-12 col-md-10 col-lg-10 righ_text_block">
-                                    <span class="title">Animate.css</span>
-                                    <p>Set of 56 excellent cross-browser CSS3 animations in one file. Correct work in popular browsers.Great for emphasis, home pages, sliders.</p>
+                                    <span class="title">@lang('content.feature_1_title')</span>
+                                    <p>@lang('content.feature_1_text')</p>
                                 </div>
                             </div>
                             <!-- Services block item 1 end -->
@@ -390,8 +241,8 @@
                                     </div>
                                 </div>
                                 <div class="col-sm-12 col-md-10 col-lg-10 righ_text_block">
-                                    <span class="title">Parallax Effects</span>
-                                    <p>Everyone loves parallax scrolling effects, they are simply beautiful. Digrand has advanced parallax options & controls.</p>
+                                    <span class="title">@lang('content.feature_2_title')</span>
+                                    <p>@lang('content.feature_2_text')</p>
                                 </div>
                             </div>
                             <!-- Services block item 2 end -->
@@ -404,8 +255,8 @@
                                     </div>
                                 </div>
                                 <div class="col-sm-12 col-md-10 col-lg-10 righ_text_block">
-                                    <span class="title">Pixel perfect</span>
-                                    <p>Excellent browser extension, that helps us to develop Site with a pixel accuracy to the PSD layout.</p>
+                                    <span class="title">@lang('content.feature_3_title')</span>
+                                    <p>@lang('content.feature_3_text')</p>
                                 </div>
                             </div>
                             <!-- Services block item 3 end-->
@@ -418,8 +269,8 @@
                                     </div>
                                 </div>
                                 <div class="col-sm-12 col-md-10 col-lg-10 righ_text_block">
-                                    <span class="title">Clean & Valid code</span>
-                                    <p>This ensures the correct display in modern browsers: IE10, IE11, Firefox, Safari, Opera, Chrome.</p>
+                                    <span class="title">@lang('content.feature_4_title')</span>
+                                    <p>@lang('content.feature_4_text')</p>
                                 </div>
                             </div>
                             <!-- Services block item 4 end-->
@@ -436,8 +287,8 @@
                                     </div>
                                 </div>
                                 <div class="col-sm-12 col-md-10 col-lg-10 righ_text_block">
-                                    <span class="title">Bootstrap 3.x</span>
-                                    <p>Bootstrap is the most popular HTML, CSS, and JS framework for developing responsive, mobile first projects on the web.</p>
+                                    <span class="title">@lang('content.feature_5_title')</span>
+                                    <p>@lang('content.feature_5_text')</p>
                                 </div>
                             </div>
                             <!-- Services block item 5 end -->
@@ -450,8 +301,8 @@
                                     </div>
                                 </div>
                                 <div class="col-sm-12 col-md-10 col-lg-10 righ_text_block">
-                                    <span class="title">Font Awesome Icons</span>
-                                    <p>We have fully integrated the entire Font Awesome Icon Set with Digrand. You can insert icons in any part.</p>
+                                    <span class="title">@lang('content.feature_6_title')</span>
+                                    <p>@lang('content.feature_6_text')</p>
                                 </div>
                             </div>
                             <!-- Services block item 6 end -->
@@ -464,8 +315,8 @@
                                     </div>
                                 </div>
                                 <div class="col-sm-12 col-md-10 col-lg-10 righ_text_block">
-                                    <span class="title">Retina Ready</span>
-                                    <p>All images are 100% Retina Ready and will look ideally on high resolution displays like the MacBook Pro, iPad or iPhone. </p>
+                                    <span class="title">@lang('content.feature_7_title')</span>
+                                    <p>@lang('content.feature_7_text')</p>
                                 </div>
                             </div>
                             <!-- Services block item 7 end -->
@@ -478,8 +329,8 @@
                                     </div>
                                 </div>
                                 <div class="col-sm-12 col-md-10 col-lg-10 righ_text_block">
-                                    <span class="title">SEO Ready</span>
-                                    <p>Our Websites are developed according to good practices and recommendations from the major search engines. </p>
+                                    <span class="title">@lang('content.feature_8_title')</span>
+                                    <p>@lang('content.feature_8_text')</p>
                                 </div>
                             </div>
                             <!-- Services block item 8 end -->
@@ -494,7 +345,7 @@
         <section class="our_team section_block silver" id="our_team">
             <div class="container ">
                 <div class="row title">
-                    <h6>Our team</h6>
+                    <h6>@lang('content.our_team')</h6>
                 </div>
                 <div class="row grid">
                     @foreach($teams as $team)
@@ -526,7 +377,7 @@
         <section class="review section_block" id="review">
             <div class="container">
                 <div class="row title">
-                    <h6>Reviews</h6>
+                    <h6>@lang('content.reviews')</h6>
                 </div>
                 <div class="row">
                     <div id="review-slider" class="liquid-slider">
@@ -616,7 +467,7 @@
                     </div>
                 </div>
                 <div class="row center">
-                    <a href="demo2.html#contact" class="skrolurl button getPlan">Leave feedback</a>
+                    <a href="#contact" class="skrolurl button getPlan">@lang('content.leave_feedback')</a>
                 </div>
             </div>
         </section>
@@ -626,7 +477,7 @@
         <section class="latest_blog section_block silver" id="latest_blog">
             <div class="container">
                 <div class="row title">
-                    <h6>Latest blog posts</h6>
+                    <h6>@lang('content.latest_blog_posts')</h6>
                 </div>
                 <div class="row grid">
                     @foreach($posts as $post)
@@ -637,7 +488,7 @@
                                     <figcaption class="read_more_block">
                                         <div class="parent_center">
                                             <div class="text_block_center">
-                                                <span><a href="blog_detail.html" class="button_white">Read more</a></span>
+                                                <span><a href="blog_detail.html" class="button_white">@lang('content.read_more')</a></span>
                                             </div>
                                         </div>
                                     </figcaption>
@@ -666,17 +517,17 @@
                     </div>
                     <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
                         <div class="map-info">
-                            <h3>Contact</h3>
+                            <h3>@lang('contact.contact')</h3>
                             <address>
                                 <i class="fa fa-map-marker" aria-hidden="true"></i>  {{$setting->$address}}
                             </address>
 
                             <ul>
                                 <li>
-                                    <i class="fa fa-phone" aria-hidden="true"></i> Phone: {{$setting->contact}}
+                                    <i class="fa fa-phone" aria-hidden="true"></i> @lang('content.phone'): {{$setting->contact}}
                                 </li>
                                 <li>
-                                    <i class="fa fa-envelope-o" aria-hidden="true"></i> Email: {{$setting->email}}
+                                    <i class="fa fa-envelope-o" aria-hidden="true"></i> @lang('content.email'): {{$setting->email}}
                                 </li>
                             </ul>
                         </div>
@@ -690,9 +541,9 @@
         <section class="jarallax row get_support section_block" style="background-image: url('images/get_support.jpg');" id="contact">
             <div class="container">
                 <div class="row contact">
-                    <div class="subtitle">Free support for your account</div>
+                    <div class="subtitle">@lang('content.support_text')</div>
                     <div class="row title">
-                        <h6>Get your support now</h6>
+                        <h6>@lang('content.support_title')</h6>
                     </div>
                     <form class="fofm">
                         <div class="row">
@@ -702,7 +553,7 @@
                                     <div class="input input--akira margin-bottom-50px">
                                         <input class="input__field input__field--akira posName" name="posName" type="text" />
                                         <label class="input__label input__label--akira">
-                                            <span class="input__label-content input__label-content--akira">Name</span>
+                                            <span class="input__label-content input__label-content--akira">@lang('content.input_name')</span>
                                         </label>
                                     </div>
                                 </div>
@@ -711,7 +562,7 @@
                                     <div class="input input--akira">
                                         <input class="input__field input__field--akira posTel" type="tel" name="txtphone" />
                                         <label class="input__label input__label--akira">
-                                            <span class="input__label-content input__label-content--akira">Phone</span>
+                                            <span class="input__label-content input__label-content--akira">@lang('content.input_phone')</span>
                                         </label>
                                     </div>
                                 </div>
@@ -723,20 +574,20 @@
                                         <div class="input input--akira">
                                             <input class="input__field input__field--akira posEmail" type="email" name="posEmail" />
                                             <label class="input__label input__label--akira">
-                                                <span class="input__label-content input__label-content--akira">E-mail</span>
+                                                <span class="input__label-content input__label-content--akira">@lang('content.input_email')</span>
                                             </label>
                                         </div>
                                     </div>
 
                                     <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4 inputsend hidden-xs">
-                                        <button type="button" class="bottom_color send">Submit</button>
+                                        <button type="button" class="bottom_color send">@lang('content.input_submit')</button>
                                     </div>
 
                                     <div class="row">
                                         <div class="input input--akira">
                                             <input class="input__field input__field--akira subject" id="get" type="text" placeholder="" name="getplan" />
                                             <label class="input__label input__label--akira">
-                                                <span class="input__label-content input__label-content--akira">Subject</span>
+                                                <span class="input__label-content input__label-content--akira">@lang('content.input_subject')</span>
                                             </label>
                                         </div>
                                     </div>
@@ -746,7 +597,7 @@
 
                         <div class="row textarea">
                             <div class="input input--akira">
-                                <textarea class="input__field input__field--akira posText" name="txtmessage" placeholder="Messenger" rows="13"></textarea>
+                                <textarea class="input__field input__field--akira posText" name="txtmessage" placeholder="@lang('content.input_messenger')" rows="13"></textarea>
                                 <label class="input__label input__label--akira">
                                     <span class="input__label-content input__label-content--akira">&nbsp;</span>
                                 </label>
@@ -755,7 +606,7 @@
 
                         <div class="row margin-top-50px">
                             <div class="col-xs-12 col-sm-2 col-md-2 col-lg-2 inputsend  visible-xs">
-                                <button type="button" class="bottom_color send">Submit</button>
+                                <button type="button" class="bottom_color send">@lang('content.input_submit')</button>
                             </div>
                         </div>
                     </form>
